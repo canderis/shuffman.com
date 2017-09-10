@@ -1,6 +1,7 @@
 html{
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 100;
+    color: white;
 }
 body{
     margin: 0;
@@ -11,9 +12,10 @@ html, body{
     width: 100%;
 }
 
-h1, h2{
+h1, h2, h3{
     margin: 0;
     font-weight: 100;
+    color: white;
 }
 .sidebar{
     background-color: #101010;
@@ -144,4 +146,18 @@ transition: .5s;
     /* Opera */
     -o-transform: rotate(-90deg);
 
+}
+
+.main{
+    padding: 20px;
+    padding-top: 100px;
+    box-sizing: border-box;
+}
+
+.portfolio{
+    height:100%;
+}
+
+.portfolio-block{
+    background-color: white;
 }
