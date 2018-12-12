@@ -1,59 +1,84 @@
-body, html {
+html {
+    font-size: 1.5vh;
+}
+
+body,
+html {
     padding: 0;
     display: block;
-    /* background-color: #FFF; */
     overflow: hidden;
     margin: 0;
 }
 
-nav{
+nav {
     position: absolute;
     top: 10vh;
-    width: calc( (100vw - 80vh) / 2 );
-    /* padding: 2rem; */
-    /* box-sizing: border-box; */
-    /* background-color: #232323; */
+    width: calc((100vw - 80vh) / 2);
     z-index: 1000;
 }
-.nav{
+
+.nav {
     margin: 0;
     padding: 0;
 }
 
-nav div{
+nav div {
     margin: auto;
     width: fit-content;
 }
 
-
-ol.nav{
+ol.nav {
     font-family: 'Lato', sans-serif;
     color: white;
     font-size: 1.5rem;
     padding-left: 17px;
 }
 
-ol li, h1 {
+ol li,
+h1 {
     animation: bounce 1s ease 0s 1;
 }
 
-ol.nav li a{
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.5rem;
-    line-height: 150%;
-    font-weight: 100;
-}
-
 a {
-    color: #FFFFFF;
-
+    color: #fff;
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     text-decoration: none;
     grid-area: nav;
 }
 
-footer{
+a,
+a:visited {
+    text-decoration: none;
+    position: relative;
+}
+
+a::after,
+a:visited::after {
+    content: '';
+    height: 1px;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    background: #fff;
+    transition: 0.5s;
+}
+
+a:hover::after,
+a:visited:hover::after,
+a.-active::after {
+    width: 100%;
+}
+
+ol.nav li a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    line-height: 150%;
+    font-weight: 100;
+}
+
+footer {
     margin: auto;
     position: absolute;
     display: grid;
@@ -63,21 +88,18 @@ footer{
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    /* margin-top: 100px; */
-    /* margin-bottom: 10px; */
     font-size: 0.9rem;
     letter-spacing: 1.5px;
     z-index: 10;
     bottom: 10px;
-    margin: auto;
     left: calc(50vw - 250px);
 }
 
-#contact{
+#contact {
     height: calc(100vh - 150px);
 }
 
-.input-box{
+.input-box {
     display: block;
     margin: auto;
     margin-bottom: 10px;
@@ -90,72 +112,65 @@ footer{
     font-weight: 300;
     color: white;
     outline: none;
-    /* padding-bottom: 10px; */
     padding: 10px;
     box-sizing: border-box;
 }
 
-.input-box.textarea{
+.input-box.textarea {
     height: 300px;
     resize: none;
 }
 
-.portfolio-pic{
+.portfolio-pic {
     height: 300px;
     width: 760px;
-    transition: .5s;
+    transition: 0.5s;
 }
 
-.portfolio-pic:hover{
+.portfolio-pic:hover {
     height: 304px;
     width: 770px;
 }
 
-#pic1{
+#pic1 {
     grid-area: pic1;
 }
 
-.left{
+.left {
     left: 100%;
     position: relative;
-    transition: .5s;
+    transition: 0.5s;
 }
 
-.right{
+.right {
     right: 100%;
     position: relative;
-    transition: .5s;
+    transition: 0.5s;
 }
 
-.left.-onScreen{
-    left: 0px;
-}
-.right.-onScreen{
-    right: 0px;
+.left.-onScreen {
+    left: 0;
 }
 
-#pic2{
+.right.-onScreen {
+    right: 0;
+}
+
+#pic2 {
     grid-area: pic2;
-
 }
 
-#pic3{
+#pic3 {
     grid-area: pic3;
-
 }
 
-#portfolio{
+#portfolio {
     display: grid;
     padding: 10px;
-
     transition: 1s;
     grid-template-rows: 150px 300px 100px 300px 100px 300px 150px;
-
     grid-template-columns: 1fr 760px 1fr;
-
-
     box-sizing: border-box;
-
     grid-template-areas:
         "pad0 pad0 pad0"
         "pad1 pic1 pad2"
@@ -163,57 +178,51 @@ footer{
         "pad4 pic2 pad5"
         "pad6 pad6 pad6"
         "pad7 pic3 pad8";
-
-}
-#app{
-    background-color: #18283fFF;
 }
 
-#logo, #app{
+#logo,
+#app {
     opacity: 1;
     transition: 1s;
 }
 
-#app.init{
-    background-color: #18283f00;
-}
-
-
-#app.init, #logo.init{
+#app.init,
+#logo.init {
     opacity: 0;
     transition: 1s;
 }
 
-#title{
+#title {
     font-family: 'Roboto', sans-serif;
     font-size: 2rem;
-    color: #FFFFFF;
+    color: #fff;
     width: 180px;
     font-weight: 100;
     letter-spacing: 5.5px;
     grid-area: title;
     margin: 0 0 10px 0;
     line-height: 120%;
-    
 }
 
-#home{
+#home {
     width: 100%;
-    height:100vh;
+    height: 100vh;
     overflow: hidden;
 }
-#app{
+
+#app {
     position: absolute;
 }
 
-#logo-column{
+#logo-column {
     display: grid;
     grid-area: logo;
     grid-template-rows: 1fr 250px 1fr;
     max-height: 100vh;
     grid-template-areas: "pad" "logo" "pad2";
 }
-#logo{
+
+#logo {
     display: block;
     position: absolute;
     height: 80vh;
@@ -222,77 +231,35 @@ footer{
     z-index: 999;
 }
 
-
-
-#menu{
+#menu {
     position: fixed;
-top: 7px;
-left: 7px;
+    top: 7px;
+    left: 7px;
 }
 
-
-#animations{
+#animations {
     grid-area: animations;
     display: grid;
     grid-template-columns: 1fr 280px;
     grid-template-areas: "pad animations";
 }
 
-canvas{
+canvas {
     grid-area: animations;
 }
 
-nav .init{
+nav .init {
     transform: translateX(-100vw);
     animation: none;
 }
 
-
-a, a:visited {
-    text-decoration: none;
-    position: relative;
-}
-a:after, a:visited:after {
-    content: '';
-    height: 1px;
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0%;
-    background: #FFF;
-    transition: 0.5s;
-}
-a:hover:after, a:visited:hover:after, a.-active:after {
-    width: 100%;
-}
-
-
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:90% 0%}
-    50%{background-position:11% 100%}
-    100%{background-position:90% 0%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:90% 0%}
-    50%{background-position:11% 100%}
-    100%{background-position:90% 0%}
-}
-@keyframes AnimationName {
-    0%{background-position:90% 0%}
-    50%{background-position:11% 100%}
-    100%{background-position:90% 0%}
-}
 @media only screen and (max-width: 1064px) {
-    #portfolio{
+    #portfolio {
         display: grid;
         grid-template-rows: 100px 300px 100px 300px 100px 300px 100px;
-
         grid-template-columns: 1fr 760px 1fr;
         padding: 10px;
-
         box-sizing: border-box;
-
         grid-template-areas:
             "pad0 pad0 pad0"
             "pad1 pic1 pad2"
@@ -302,25 +269,14 @@ a:hover:after, a:visited:hover:after, a.-active:after {
             "pad7 pic3 pad8";
     }
 }
-
-
-    html{
-        font-size: 1.5vh;
-    }
-
-
-
 
 @media only screen and (max-width: 800px) {
-    #portfolio{
+    #portfolio {
         display: grid;
         grid-template-rows: 100px 300px 100px 300px 100px 300px 100px;
-
         grid-template-columns: 1fr 760px 1fr;
         padding: 10px;
-
         box-sizing: border-box;
-
         grid-template-areas:
             "pad0 pad0 pad0"
             "pad1 pic1 pad2"
@@ -331,35 +287,36 @@ a:hover:after, a:visited:hover:after, a.-active:after {
     }
 }
 
-#fog{
-    width:100%;
+#fog {
+    width: 100%;
     height: 100%;
 }
 
-.rotate45{
+.rotate45 {
     transform: translateX(125px) !important;
     height: 80px !important;
-    top:10px;
+    top: 10px;
     opacity: 0;
     position: fixed;
 }
 
-.scaledLogo{
+.scaledLogo {
     height: 80px !important;
     transform: translateX(86px);
     position: fixed;
-    top:10px;
+    top: 10px;
 }
 
+@keyframes bounce {
+    0% {
+        transform: translateX(-100vw);
+    }
 
-@keyframes bounce {   
-    0% {     
-      transform: translateX(-100vw); 
-    }   
-    80% {     
-        transform: translateX(5px);  
-    } 
+    80% {
+        transform: translateX(5px);
+    }
+
     100% {
         transform: translateX(0);
     }
-  }
+}
