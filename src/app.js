@@ -1,4 +1,4 @@
-import smoke from './images/smoke4-min.png';
+import smoke from './images/cloud1.png';
 import {
     Clock,
     WebGLRenderer,
@@ -21,7 +21,7 @@ import {
     ((i) => {
         mw = (123456789 + i) & mask;
         mz = (987654321 - i) & mask;
-    })(35);
+    })(26);
 
     const random = () => {
         // Takes any integer
@@ -49,7 +49,7 @@ import {
     light.position.set(-1, 0, 1);
     scene.add(light);
 
-    const smokeGeo = new PlaneGeometry(759, 383);
+    const smokeGeo = new PlaneGeometry(1024, 512);
     const smokeParticles = [];
     const materialsTop = [];
     const materialsBottom = [];
@@ -98,7 +98,7 @@ import {
         );
 
         particle.position.set(
-            (random() * Math.cos(random()))*window.innerWidth-400,
+            (random() * Math.cos(random()))*window.innerWidth-500,
             (random() * Math.cos(random()))*window.innerHeight-400,
             random()*700
         );

@@ -186,6 +186,11 @@ footer {
     transition: 1s;
 }
 
+#app {
+    position: absolute;
+    background-color: #18283f;
+}
+
 #app.init,
 #logo.init {
     opacity: 0;
@@ -208,10 +213,6 @@ footer {
     width: 100%;
     height: 100vh;
     overflow: hidden;
-}
-
-#app {
-    position: absolute;
 }
 
 #logo-column {
