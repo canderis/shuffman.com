@@ -1,3 +1,4 @@
+require('babel-polyfill');
 import smoke from './images/cloud1.png';
 import {
     Clock,
@@ -14,24 +15,32 @@ import {
 'use strict';
 
 (function() {
-    let mw = 123456789;
-    let mz = 987654321;
-    const mask = 0xffffffff;
+    const between = (function() {
+        const SEED = 5;
 
-    ((i) => {
-        mw = (123456789 + i) & mask;
-        mz = (987654321 - i) & mask;
-    })(26);
+        let mw = 123456789;
+        let mz = 987654321;
+        const mask = 0xffffffff;
 
-    const random = () => {
-        // Takes any integer
-        mz = (36969 * (mz & 65535) + (mz >> 16)) & mask;
-        mw = (18000 * (mw & 65535) + (mw >> 16)) & mask;
+        ((i) => {
+            mw = (123456789 + i) & mask;
+            mz = (987654321 - i) & mask;
+        })(SEED);
 
-        let result = ((mz << 16) + (mw & 65535)) >>> 0;
-        result /= 4294967296;
-        return result;
-    };
+        const random = () => {
+            // Takes any integer
+            mz = (36969 * (mz & 65535) + (mz >> 16)) & mask;
+            mw = (18000 * (mw & 65535) + (mw >> 16)) & mask;
+
+            let result = ((mz << 16) + (mw & 65535)) >>> 0;
+            result /= 4294967296;
+            return result;
+        };
+
+        return (min, max) => {
+            return Math.floor(random()*(max-min+1)+min);
+        };
+    })();
 
     const renderer = new WebGLRenderer( {alpha: true} );
     renderer.setSize( window.innerWidth, window.innerHeight );
@@ -49,87 +58,69 @@ import {
     light.position.set(-1, 0, 1);
     scene.add(light);
 
-    const smokeGeo = new PlaneGeometry(1024, 512);
-    const smokeParticles = [];
-    const materialsTop = [];
-    const materialsBottom = [];
-
     const texture = new TextureLoader().load(smoke);
 
-    const colorsTop = [
-        0x4c4261,
-        0x5b4e6e,
-        0x5d6088,
-        0x575b87,
-        0x656995,
-        0x4a5782,
-        0xb09fa2,
+    const colors = [
+        0xf1697f,
+        0xf97859,
+        0x7d47b6,
+        0xf58b59,
+        0xcb85a9,
+        0xff8866,
+        0xda7cba,
+        0xb8a4eb,
+        0x6c3fa8,
+        0xfd995d,
+        0x4987d2,
+        0x3c6f8c,
+        0x4987d2,
+        0x0096d1,
     ];
 
-    const colorsBottom = [
-        0xFFAFD7,
-        0x00D7D7,
-        0xaab0cd,
-        0x969ab4,
-        0x00AFFF,
-        0xFF5FD7,
-        0xFF5FD7,
-        0x00D7D7,
-    ];
-
-
-    for (let i = 0; i < 10; i++) {
-        materialsTop.push(
+    const materials = [];
+    for (let i = 0; i < colors.length; i++) {
+        materials.push(
             new MeshLambertMaterial({
-                color: colorsTop[i%colorsTop.length],
+                emissive: colors[i],
+                color: colors[i],
+                emissiveIntensity: 0.5,
                 map: texture, transparent: true,
             }));
-        materialsBottom.push(
+        materials.push(
             new MeshLambertMaterial({
-                color: colorsBottom[i%colorsBottom.length],
+                emissive: colors[i],
+                color: colors[i],
+                emissiveIntensity: 0.3,
                 map: texture, transparent: true,
             }));
     }
 
-    for (let p = 0; p < 30; p++) {
+    const geo = new PlaneGeometry(1024, 512);
+
+    const particles = [];
+    for (let p = 0; p < 60; p++) {
         const particle = new Mesh(
-            smokeGeo,
-            materialsBottom[p%materialsBottom.length]
+            geo,
+            materials[p%materials.length]
         );
 
         particle.position.set(
-            (random() * Math.cos(random()))*window.innerWidth-500,
-            (random() * Math.cos(random()))*window.innerHeight-400,
-            random()*700
+            between(-1024, window.innerWidth + 256),
+            between(-1024, window.innerHeight),
+            between(0, 700)
         );
 
-        particle.rotation.z = random() * 360;
+        particle.rotation.z = between(0, 360);
         scene.add(particle);
-        smokeParticles.push(particle);
-    }
-
-    for (let p = 0; p < 30; p++) {
-        const particle = new Mesh(
-            smokeGeo,
-            materialsTop[p%materialsTop.length]
-        );
-
-        particle.position.set(
-            (random() * Math.cos(random()))*window.innerWidth-400,
-            (random() * Math.cos(random()))*window.innerHeight-400,
-            random()*700
-        );
-
-        particle.rotation.z = random() * 360;
-        scene.add(particle);
-        smokeParticles.push(particle);
+        particles.push(particle);
     }
 
     const clock = new Clock();
     const animate = () => {
         const delta = clock.getDelta();
         requestAnimationFrame( animate );
-        smokeParticles.forEach((particle) => {
+
+        particles.forEach((particle) => {
             particle.rotation.z += (delta * 0.2);
         });
         renderer.render( scene, camera );
