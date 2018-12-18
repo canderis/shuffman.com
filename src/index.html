@@ -3,8 +3,9 @@
 <head>
     <meta charset="utf-8" />
     <title>Scott Huffman | Design & Development</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+
     <style>
         html {
             background-color: #232323;
@@ -17,34 +18,38 @@
 </head>
 <body>
     <div id='home-page'>
+
         <div class="init" id="app"></div>
-        <img class="init" id="logo" src="images/logo-w.svg">
-        <nav>
-            <div id="nav-wrap">
-                <h1 class="init" id="title"><a _target="home" class="nav-link -active" id="home-link">Scott Huffman</a></h1>
-                <ol id="nav-list" class="nav">
-                    <li class="init"><a _target="about" class="nav-link" id="about-link">about</a></li>
-                    <li class="init"><a _target="portfolio" class="nav-link" id="portfolio-link">portfolio</a></li>
-                    <li class="init"><a _target="contact" class="nav-link" id="contact-link">contact</a></li>
-                </ol>
-            </div>
-        </nav>
     </div>
+    <nav>
+        <div id="title-block">
+            <h1 id="title" class="init">Scott Huffman</h1>
+            <h2 id="subtitle" class="init">designer & developer</h2>
+        </div>
+        <a _target="about" class="nav-link init" id="about-link">about</a>
+        <a _target="contact" class="nav-link init" id="contact-link">contact@shuffman.com</a>
+        <div class="init arrow" style="transform:rotate(-90deg);">
+            <div class="arrow-tail"></div>
+            <div class="arrow-head">
+                <div class="arrow-top-point">
+                    <div class="arrow-point-size"></div>
+                </div>
+                <div class="arrow-bottom-point">
+                    <div class="arrow-point-size"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
     <div id='about-page'>
 
     </div>
     <div id='portfolio-page'>
 
     </div>
-    <div id="contact-page">
-        <input class="input-box text" type="text" placeholder="name" />
-        <input class="input-box text" type="text" placeholder="email" />
-        <textarea class="input-box textarea" placeholder="message" name="Text1" cols="40" rows="5"></textarea>
-    </div>
 
-    <footer>
+    <!-- <footer>
         <span>© 2018, Scott Huffman</span><span></span><span><a href="https://github.com/canderis">GitHub</a> | <a href="https://www.linkedin.com/in/shuffman14/">LinkedIn</a></span>
-    </footer>
+    </footer> -->
 <!-- </div> -->
 
 </body>
