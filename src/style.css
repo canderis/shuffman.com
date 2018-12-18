@@ -14,7 +14,7 @@ nav {
     position: absolute;
     top: 10vh;
     width: calc((100vw - 80vh) / 2);
-    z-index: 1000;
+    z-index: 9000;
 }
 
 .nav {
@@ -98,10 +98,6 @@ footer {
     left: calc(50vw - 250px);
 }
 
-#contact {
-    height: calc(100vh - 150px);
-}
-
 .input-box {
     display: block;
     margin: auto;
@@ -183,15 +179,11 @@ footer {
         "pad7 pic3 pad8";
 }
 
-#logo,
-#app {
-    opacity: 1;
-    transition: 1s;
-}
-
 #app {
     position: absolute;
     background-color: #323033;
+    transition: 1s;
+    opacity: 1;
 }
 
 #app.init,
@@ -212,9 +204,10 @@ footer {
     line-height: 120%;
 }
 
-#home {
+#home-page {
     width: 100%;
     height: 100vh;
+    z-index: 2000;
     overflow: hidden;
 }
 
@@ -232,6 +225,8 @@ footer {
     height: 80vh;
     width: 100%;
     margin: 10vh auto;
+    opacity: 1;
+    transition: 2s;
     z-index: 999;
 }
 
@@ -309,6 +304,36 @@ nav .init {
     transform: translateX(86px);
     position: fixed;
     top: 10px;
+}
+
+#about-page,
+#contact-page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background-color: #323033;
+    transition: 1s;
+    top: 0;
+    z-index: 2000;
+}
+
+#contact-page {
+    transform: translateY(-100vh);
+}
+
+#about-page {
+    transform: translateX(100vw);
+}
+
+#about-page.show,
+#contact-page.show {
+    transform: translateY(0) translateX(0);
+}
+
+#about-page.top,
+#contact-page.top,
+#home-page.top {
+    z-index: 3000;
 }
 
 @keyframes bounce {

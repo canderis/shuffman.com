@@ -1,4 +1,3 @@
-require('babel-polyfill');
 import smoke from './images/cloud1.png';
 import {
     Clock,
@@ -14,6 +13,7 @@ import {
 
 'use strict';
 
+let runAnimate = true;
 (function() {
     const between = (function() {
         const SEED = 5;
@@ -95,10 +95,15 @@ import {
             }));
     }
 
-    const geo = new PlaneGeometry(1024, 512);
+    const lim = Math.floor(
+        ((x) => {
+            return -3.167849 + 0.01190006*x + 0.0000311615*(Math.pow(x, 2));
+        })(window.innerWidth)
+    );
 
     const particles = [];
-    for (let p = 0; p < 60; p++) {
+    const geo = new PlaneGeometry(1024, 512);
+    for (let p = 0; p < lim; p++) {
         const particle = new Mesh(
             geo,
             materials[p%materials.length]
@@ -117,12 +122,14 @@ import {
 
     const clock = new Clock();
     const animate = () => {
-        const delta = clock.getDelta();
         requestAnimationFrame( animate );
 
-        particles.forEach((particle) => {
-            particle.rotation.z += (delta * 0.2);
-        });
+        if (runAnimate) {
+            const delta = clock.getDelta();
+            particles.forEach((particle) => {
+                particle.rotation.z += (delta * 0.2);
+            });
+        }
         renderer.render( scene, camera );
     };
 
@@ -143,3 +150,39 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })();
 });
+
+(() => {
+    const links = document.getElementsByClassName('nav-link');
+    let active = document.getElementById('home-link');
+    let pg = document.getElementById('home-page');
+    const rmActive = (newPgLink, newPg) => {
+        newPgLink.classList.add('-active');
+        pg.classList.remove('top');
+        if (newPg.getAttribute('id') !== 'home-page') {
+            const oldPg = pg;
+            const int = setInterval(() => {
+                runAnimate = false;
+                oldPg.classList.remove('show' );
+                clearInterval(int);
+            }, 1000);
+        } else {
+            runAnimate = true;
+            pg.classList.remove('show' );
+        }
+
+        pg = newPg;
+        active.classList.remove('-active');
+        active = newPgLink;
+    };
+
+
+    for (const link of links) {
+        console.log();
+        link.addEventListener('click', () => {
+            const pgEl =
+                document.getElementById(`${link.getAttribute('_target')}-page`);
+            pgEl.classList.add('show', 'top');
+            rmActive(link, pgEl);
+        });
+    }
+})();
