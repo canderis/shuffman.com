@@ -311,7 +311,7 @@ nav .init {
     width: 100vw;
     height: 100vh;
     position: fixed;
-    background-color: #323033;
+    background-color: #000000bb;
     transition: 1s;
     top: 0;
     z-index: 2000;

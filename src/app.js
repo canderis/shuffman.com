@@ -13,7 +13,7 @@ import {
 
 'use strict';
 
-let runAnimate = true;
+const runAnimate = true;
 (function() {
     const between = (function() {
         const SEED = 5;
@@ -161,12 +161,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (newPg.getAttribute('id') !== 'home-page') {
             const oldPg = pg;
             const int = setInterval(() => {
-                runAnimate = false;
+                // runAnimate = false;
                 oldPg.classList.remove('show' );
                 clearInterval(int);
             }, 1000);
         } else {
-            runAnimate = true;
+            // runAnimate = true;
             pg.classList.remove('show' );
         }
 
