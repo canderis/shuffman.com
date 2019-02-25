@@ -152,37 +152,121 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 (() => {
-    const links = document.getElementsByClassName('nav-link');
-    let active = document.getElementById('home-link');
-    let pg = document.getElementById('home-page');
-    const rmActive = (newPgLink, newPg) => {
-        newPgLink.classList.add('-active');
-        pg.classList.remove('top');
-        if (newPg.getAttribute('id') !== 'home-page') {
-            const oldPg = pg;
-            const int = setInterval(() => {
-                // runAnimate = false;
-                oldPg.classList.remove('show' );
-                clearInterval(int);
-            }, 1000);
-        } else {
-            // runAnimate = true;
-            pg.classList.remove('show' );
-        }
+    let transition;
 
-        pg = newPg;
-        active.classList.remove('-active');
-        active = newPgLink;
-    };
+    const homeState = (() => {
+        const logo = document.getElementById('logo');
+        const homeLink = document.getElementById('home-link');
 
+        const state = {
+            from: () => {
+                logo.classList.add('init');
+                homeLink.classList.remove('-active');
+            },
+            to: () => {
+                logo.classList.remove('init');
+                homeLink.classList.add('-active');
+            },
+        };
 
-    for (const link of links) {
-        console.log();
-        link.addEventListener('click', () => {
-            const pgEl =
-                document.getElementById(`${link.getAttribute('_target')}-page`);
-            pgEl.classList.add('show', 'top');
-            rmActive(link, pgEl);
+        homeLink.addEventListener('click', () => {
+            console.log('home click');
+
+            transition(state);
         });
-    }
+
+        return state;
+    })();
+
+    (() => {
+        const aboutPage = document.getElementById('about-page');
+        const aboutLink = document.getElementById('about-link');
+
+        const state = {
+            from: () => {
+                aboutPage.classList.remove('show');
+                aboutLink.classList.remove('-active');
+            },
+            to: () => {
+                aboutPage.classList.add('show');
+                aboutLink.classList.add('-active');
+            },
+        };
+
+        aboutLink.addEventListener('click', () => {
+            transition(state);
+        });
+
+        return state;
+    })();
+
+    (() => {
+        const portfolioPage = document.getElementById('portfolio-page');
+        const portfolioLink = document.getElementById('portfolio-link');
+
+        const state = {
+            from: () => {
+                portfolioPage.classList.remove('show');
+                portfolioLink.classList.remove('-active');
+            },
+            to: () => {
+                portfolioPage.classList.add('show');
+                portfolioLink.classList.add('-active');
+            },
+        };
+
+        portfolioLink.addEventListener('click', () => {
+            transition(state);
+        });
+
+        return state;
+    })();
+
+    transition = ( () => {
+        let activeState = homeState;
+        console.log(activeState);
+        return (to) => {
+            console.log(to);
+            activeState.from();
+            activeState = to;
+            activeState.to();
+        };
+    })();
 })();
+
+
+// (() => {
+//     const links = document.getElementsByClassName('nav-link');
+//     let active = document.getElementById('home-link');
+//     let pg = document.getElementById('home-page');
+//     const rmActive = (newPgLink, newPg) => {
+//         newPgLink.classList.add('-active');
+//         pg.classList.remove('top');
+//         if (newPg.getAttribute('id') !== 'home-page') {
+//             const oldPg = pg;
+//             const int = setInterval(() => {
+//                 // runAnimate = false;
+//                 oldPg.classList.remove('show' );
+//                 clearInterval(int);
+//             }, 1000);
+//         } else {
+//             // runAnimate = true;
+//             pg.classList.remove('show' );
+//         }
+
+//         pg = newPg;
+//         active.classList.remove('-active');
+//         active = newPgLink;
+//     };
+
+
+//     for (const link of links) {
+//         console.log();
+//         link.addEventListener('click', () => {
+//             const pgEl =
+//            document.getElementById(`${link.getAttribute('_target')}-page`);
+//             pgEl.classList.add('show', 'top');
+//             rmActive(link, pgEl);
+//         });
+//     }
+// })();
