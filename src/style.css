@@ -303,17 +303,21 @@ nav .init {
 }
 
 #portfolio-page {
-    background-color: #171c22;
+    background-color: #131313;
     transform: translateY(100vh);
+    overflow-y: scroll;
+}
+
+.portfolio-item {
     padding-left: calc((100vw - 80vh) / 2);
     padding-right: 4rem;
     padding-top: 2.133rem;
     padding-bottom: 1.333rem;
     box-sizing: border-box;
-}
-
-.portfolio-item {
     max-width: 100%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
 }
 
 .marquee {
@@ -326,7 +330,7 @@ nav .init {
     max-width: 100%;
 }
 
-.marquee-img {
+#safewalk-page .marquee-img {
     /* height: 100%; */
     background: url(images/SafeWalk_0.png) bottom right no-repeat #1a5dac;
     background-size: contain;
@@ -349,7 +353,58 @@ nav .init {
     font-size: 2rem;
 }
 
-#portfolio-page .page-title h2 {
+#adelitas-page {
+    background-color: #131313;
+}
+
+#adelitas-page .marquee-img {
+    /* height: 100%; */
+    background: url(images/AdelitasWay_0.png) center center no-repeat;
+    background-size: cover;
+}
+
+#adelitas-page .page-title h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 1.52px;
+    text-align: right;
+    margin: 0 0 0.8px 0;
+}
+
+#adelitas-page .page-title h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.733rem;
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 0.98px;
+    text-align: right;
+    margin: 0 0 2.133rem 0;
+}
+
+#adelitas-desc {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.76px;
+    text-align: justify;
+    font-size: 1.333rem;
+    line-height: 1.333rem;
+    color: #fff;
+    height: 100%;
+    flex-shrink: 1;
+    grid-gap: 1rem;
+}
+
+#adelitas-page .portfolio-item-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+#adelitas-desc p {
+    margin: 0;
+}
+
+#safewalk-page .page-title h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 2.4rem;
     font-weight: 300;
@@ -359,7 +414,7 @@ nav .init {
     margin: 0 0 0.8px 0;
 }
 
-#portfolio-page .page-title h3 {
+#safewalk-page .page-title h3 {
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.733rem;
     font-weight: 200;
@@ -379,9 +434,7 @@ nav .init {
 }
 
 #safewalk-page {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    height: 100%;
+    background-color: #171c22;
 }
 
 #safewalk-team h4 {
@@ -435,15 +488,27 @@ nav .init {
 
 .visit-area {
     margin-left: auto;
-    width: 150px;
+    width: 180px;
+    height: 100%;
+    display: block;
+    transform: translateX(0);
+    transition: 0.5s;
 }
 
 .visit-area span {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 12px;
+    font-size: 1rem;
     color: #fff;
     letter-spacing: 0.65px;
     text-align: justify;
+}
+
+#safewalk-page .visit-area span {
+    font-family: 'Orbitron', sans-serif;
+}
+
+#adelitas-page .visit-area span {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.33rem;
 }
 
 #about-page.top,
@@ -456,6 +521,8 @@ nav .init {
     width: 150px;
     height: 30px;
     position: absolute;
+    transform: rotate(180deg) translateX(0);
+    transition: 0.5s;
 }
 
 .down-arrow {
@@ -496,6 +563,14 @@ nav .init {
     height: 16px;
     transform-origin: 50% 100%;
     background-color: #aaa;
+}
+
+.visit-area:hover {
+    transform: translateX(2rem);
+}
+
+.visit-area:hover::after {
+    width: 0%;
 }
 
 #about-wrap {
