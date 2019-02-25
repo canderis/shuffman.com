@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 (() => {
-    let transition;
+    let transition = null;
 
     const homeState = (() => {
         const logo = document.getElementById('logo');
@@ -204,12 +204,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const portfolioPage = document.getElementById('portfolio-page');
         const portfolioLink = document.getElementById('portfolio-link');
 
+
+        const portfolioItemLinks
+            = document.getElementById('portfolio-item-links');
+
         const state = {
             from: () => {
                 portfolioPage.classList.remove('show');
                 portfolioLink.classList.remove('-active');
+                portfolioItemLinks.classList.remove('show');
             },
             to: () => {
+                portfolioItemLinks.classList.add('show');
                 portfolioPage.classList.add('show');
                 portfolioLink.classList.add('-active');
             },
@@ -217,6 +223,47 @@ document.addEventListener('DOMContentLoaded', () => {
 
         portfolioLink.addEventListener('click', () => {
             transition(state);
+        });
+
+        const safeWalkPage = document.getElementById('safewalk-page');
+        const adelitasPage = document.getElementById('adelitas-page');
+
+        const safeWalkLink = document.getElementById('safewalk-link');
+        const adelitasLink = document.getElementById('adelitas-link');
+
+
+        const mid = (page) => page.offsetTop + (page.offsetHeight * 2 / 3);
+        // console.log(safeWalkPage.)
+        const safeWalkMid = mid(safeWalkPage);
+        const adelitasMid = mid(adelitasPage);
+
+
+        const checkState = (() => {
+            let activeLink = safeWalkLink;
+
+            return (newLink) => {
+                if (activeLink != newLink) {
+                    console.log('changing state');
+                    activeLink.classList.remove('-active');
+                    newLink.classList.add('-active');
+                    activeLink = newLink;
+                }
+            };
+        })();
+
+        portfolioPage.addEventListener('scroll', (e) => {
+            const scrollVal = e.target.scrollTop;
+
+            if (scrollVal < safeWalkMid) {
+                // state changed to safewalk
+                console.log('safewalk');
+                checkState(safeWalkLink);
+            } else if (scrollVal < adelitasMid) {
+                console.log('adelitas');
+                checkState(adelitasLink);
+            } else {
+                console.log('other' );
+            }
         });
 
         return state;

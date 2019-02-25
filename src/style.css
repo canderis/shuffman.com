@@ -28,17 +28,18 @@ nav div {
     width: fit-content;
 }
 
+ul.nav,
 ol.nav {
     font-family: 'Lato', sans-serif;
     color: white;
     font-size: 1.5rem;
 }
 
-ol li {
+ul > li {
     list-style: none;
 }
 
-ol li,
+ul li,
 h1 {
     animation: bounce 1s ease 0s 1;
 }
@@ -48,6 +49,11 @@ a {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     text-decoration: none;
+    transition: 0.25s;
+}
+
+nav ul ol a {
+    font-size: 1.3rem;
 }
 
 a,
@@ -74,7 +80,15 @@ a.-active::after {
     width: 100%;
 }
 
-ol.nav li a {
+nav ul a.-active {
+    font-size: 1.6rem;
+}
+
+nav ul ol a.-active {
+    font-size: 1.4rem;
+}
+
+ul.nav li {
     font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
     line-height: 150%;
@@ -113,6 +127,14 @@ footer {
     outline: none;
     padding: 10px;
     box-sizing: border-box;
+}
+
+#portfolio-item-links {
+    display: none;
+}
+
+#portfolio-item-links.show {
+    display: block;
 }
 
 .input-box.textarea {
