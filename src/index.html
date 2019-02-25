@@ -17,10 +17,15 @@
     </style>
 </head>
 <body>
+    <div id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
     <div id='home-page'>
         <div class="init" id="app"></div>
         <img class="init" id="logo" src="images/logo-w.svg">
-        <nav>
+        <nav id="nav" class="show">
             <div id="nav-wrap">
                 <h1 class="init" id="title"><a _target="home" class="nav-link -active" id="home-link">Scott Huffman</a></h1>
                 <ul id="nav-list" class="nav">
@@ -102,7 +107,7 @@
                         <p>Designer and maintainer for the offical website of the hard rock band Adelitas Way.</p>
                     </div>
                     <div id="adelitas-visit">
-                        <div class="visit-area">
+                        <a target="_blank" href="http://adelitaswaymusic.com/" class="visit-area">
                             <span>Visit</span>
                             <div class="post-link arrow" style="transform:rotate(180deg);">
                                 <div class="arrow-tail"></div>
@@ -115,7 +120,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

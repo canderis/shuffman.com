@@ -154,6 +154,9 @@ document.addEventListener('DOMContentLoaded', () => {
 (() => {
     let transition = null;
 
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
     const homeState = (() => {
         const logo = document.getElementById('logo');
         const homeLink = document.getElementById('home-link');
@@ -162,10 +165,22 @@ document.addEventListener('DOMContentLoaded', () => {
             from: () => {
                 logo.classList.add('init');
                 homeLink.classList.remove('-active');
+                hamburger.classList.add('show');
+                // if (document.body.offsetWidth < 940) {
+                //     // mobile
+                //     nav.classList.remove('show');
+                //     nav.classList.add('top');
+                // }
             },
             to: () => {
                 logo.classList.remove('init');
                 homeLink.classList.add('-active');
+                hamburger.classList.remove('show');
+                if (document.body.offsetWidth < 940) {
+                    // mobile
+                    nav.classList.add('show');
+                    nav.classList.remove('top');
+                }
             },
         };
 
@@ -190,6 +205,11 @@ document.addEventListener('DOMContentLoaded', () => {
             to: () => {
                 aboutPage.classList.add('show');
                 aboutLink.classList.add('-active');
+                if (document.body.offsetWidth < 940) {
+                    // mobile
+                    nav.classList.remove('show');
+                    nav.classList.add('top');
+                }
             },
         };
 
@@ -213,11 +233,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 portfolioPage.classList.remove('show');
                 portfolioLink.classList.remove('-active');
                 portfolioItemLinks.classList.remove('show');
+                hamburger.classList.remove('portfolio');
+                nav.classList.remove('portfolio');
             },
             to: () => {
                 portfolioItemLinks.classList.add('show');
                 portfolioPage.classList.add('show');
                 portfolioLink.classList.add('-active');
+                hamburger.classList.add('portfolio');
+                nav.classList.add('portfolio');
+                if (document.body.offsetWidth < 940) {
+                    // mobile
+                    nav.classList.remove('show');
+                    nav.classList.add('top');
+                }
             },
         };
 
@@ -270,10 +299,22 @@ document.addEventListener('DOMContentLoaded', () => {
     })();
 
     transition = ( () => {
+        let navVisible = false;
         let activeState = homeState;
-        console.log(activeState);
+
+        (() => {
+            hamburger.addEventListener('click', () => {
+                if ( activeState != homeState ) {
+                    navVisible = !navVisible;
+                    if (navVisible) nav.classList.add('show');
+                    else nav.classList.remove('show');
+                }
+            });
+        })();
+
+
         return (to) => {
-            console.log(to);
+            navVisible = false;
             activeState.from();
             activeState = to;
             activeState.to();

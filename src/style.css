@@ -16,6 +16,13 @@ nav {
     top: 10vh;
     width: calc((100vw - 80vh) / 2);
     z-index: 9000;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+nav.show {
+    opacity: 1;
 }
 
 .nav {
@@ -26,6 +33,8 @@ nav {
 nav div {
     margin: auto;
     width: fit-content;
+    padding-left: 10px;
+    box-sizing: border-box;
 }
 
 ul.nav,
@@ -258,40 +267,6 @@ nav .init {
     animation: none;
 }
 
-@media only screen and (max-width: 1064px) {
-    #portfolio {
-        display: grid;
-        grid-template-rows: 100px 300px 100px 300px 100px 300px 100px;
-        grid-template-columns: 1fr 760px 1fr;
-        padding: 10px;
-        box-sizing: border-box;
-        grid-template-areas:
-            "pad0 pad0 pad0"
-            "pad1 pic1 pad2"
-            "pad3 pad3 pad3"
-            "pad4 pic2 pad5"
-            "pad6 pad6 pad6"
-            "pad7 pic3 pad8";
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    #portfolio {
-        display: grid;
-        grid-template-rows: 100px 300px 100px 300px 100px 300px 100px;
-        grid-template-columns: 1fr 760px 1fr;
-        padding: 10px;
-        box-sizing: border-box;
-        grid-template-areas:
-            "pad0 pad0 pad0"
-            "pad1 pic1 pad2"
-            "pad3 pad3 pad3"
-            "pad4 pic2 pad5"
-            "pad6 pad6 pad6"
-            "pad7 pic3 pad8";
-    }
-}
-
 #fog {
     width: 100%;
     height: 100%;
@@ -408,7 +383,6 @@ nav .init {
 #adelitas-desc {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.76px;
-    text-align: justify;
     font-size: 1.333rem;
     line-height: 1.333rem;
     color: #fff;
@@ -493,7 +467,6 @@ nav .init {
 #safewalk-desc {
     font-family: 'Ubuntu', sans-serif;
     letter-spacing: 0.76px;
-    text-align: justify;
     font-size: 0.9333rem;
     line-height: 1rem;
     color: #fff;
@@ -603,6 +576,20 @@ nav .init {
     margin-top: calc(50vh - 100px);
 }
 
+#hamburger {
+    display: none;
+    z-index: 9001;
+}
+
+#hamburger span {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background-color: #fffc;
+    margin: auto;
+    border-radius: 3px;
+}
+
 @keyframes bounce {
     0% {
         transform: translateX(-100vw);
@@ -614,5 +601,105 @@ nav .init {
 
     100% {
         transform: translateX(0);
+    }
+}
+
+@media only screen and (max-width: 940px) {
+    /* Mobile Mode */
+    html {
+        font-size: 2vh;
+    }
+
+    #hamburger {
+        display: grid;
+        opacity: 0;
+        transition: 1s;
+        position: fixed;
+        cursor: default;
+        top: 20px;
+        width: 100%;
+        grid-gap: 6px;
+        transform: translateX(0);
+    }
+
+    #hamburger.show {
+        cursor: pointer;
+        opacity: 1;
+    }
+
+    #hamburger.portfolio {
+        transform: translateX(calc(-50vw + 30px));
+    }
+
+    #logo {
+        display: none;
+    }
+
+    nav {
+        width: 100%;
+        text-align: center;
+        top: 30vh;
+    }
+
+    nav.top {
+        top: 64px;
+        /* background-color: #232323; */
+    }
+
+    @keyframes navTransition {
+        0% {
+        }
+
+        99.9% {
+            background-color: #0000;
+        }
+
+        100% {
+            /* top: 0; */
+            text-align: left;
+            width: fit-content;
+            padding: 64px 20px 20px 20px;
+            background-color: hsla(0, 0%, 14%, 0.867);
+            height: 100%;
+        }
+    }
+
+    nav.portfolio {
+        top: 0;
+
+        /* text-align: left; */
+        animation: navTransition 1s ease 0s 1 forwards;
+    }
+
+    .portfolio-item {
+        padding: 64px;
+    }
+
+    #safewalk-page .portfolio-item-details {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: "desc team" "desc visit";
+        grid-column-gap: 20px;
+    }
+
+    #safewalk-page #safewalk-team {
+        grid-area: team;
+    }
+
+    #safewalk-page #safewalk-desc {
+        grid-area: desc;
+    }
+
+    #safewalk-page #safewalk-visit {
+        grid-area: visit;
+    }
+
+    #nav-wrap {
+        padding: 0;
+    }
+
+    #title {
+        white-space: nowrap;
+        width: auto;
     }
 }
