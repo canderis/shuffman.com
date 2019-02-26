@@ -304,6 +304,7 @@ nav .init {
     background-color: #131313;
     transform: translateY(100vh);
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .portfolio-item {
@@ -726,9 +727,9 @@ nav .init {
 
     #safewalk-page .portfolio-item-details {
         display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-areas: "desc team" "desc visit";
-        grid-column-gap: 20px;
+        grid-template-columns: auto;
+        grid-template-areas: "desc desc" "team team" "visit visit";
+        grid-row-gap: 20px;
     }
 
     #safewalk-page #safewalk-team {
@@ -757,15 +758,32 @@ nav .init {
         grid-template-rows: auto calc(0.63 * 100vw) auto;
         padding: 60px 10px 10px 10px;
         width: 100vw;
-        /* height: fit-content; */
+        height: auto;
+    }
+
+    #safewalk-page.portfolio-item {
+        padding: 60px 10px 40px 10px;
     }
 
     #revan-page.portfolio-item {
         display: grid;
         grid-template-rows: auto auto auto;
-        padding: 60px 10px 30px 10px;
+        padding: 60px 10px 60px 10px;
         width: 100vw;
         /* height: fit-content; */
+        height: auto;
+    }
+
+    #adelitas-page .portfolio-item-details {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: auto;
+    }
+
+    #revan-page .portfolio-item-details {
+        display: grid;
+        grid-template-columns: auto;
+        grid-gap: 30px;
     }
 
     .switcher {
