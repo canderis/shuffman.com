@@ -15,14 +15,15 @@ nav {
     position: absolute;
     top: 10vh;
     width: calc((100vw - 80vh) / 2);
-    z-index: 9000;
     cursor: pointer;
+    z-index: -1;
     opacity: 0;
     transition: 0.5s;
 }
 
 nav.show {
     opacity: 1;
+    z-index: 9000;
 }
 
 .nav {
@@ -108,8 +109,8 @@ footer {
     margin: auto;
     position: absolute;
     display: grid;
-    width: 500px;
-    grid-template-columns: auto 1fr auto;
+    width: 100%;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
     color: #979797;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
@@ -118,7 +119,7 @@ footer {
     letter-spacing: 1.5px;
     z-index: 10;
     bottom: 10px;
-    left: calc(50vw - 250px);
+    padding: 0 10px;
 }
 
 .input-box {
@@ -333,6 +334,26 @@ nav .init {
     background-size: contain;
 }
 
+#revan-page .marquee-img {
+    /* height: 100%; */
+    background: url(images/Revan_0.png) center center no-repeat #171717;
+    /* background-size: contain; */
+    min-height: 300px;
+}
+
+#revan-page .portfolio-item-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+}
+
+
+#calendar-page .marquee-img {
+    /* height: 100%; */
+    background: url(images/Calendar_0.png) top left no-repeat #54749c;
+    background-size: contain;
+}
+
 #about-page {
     opacity: 0;
     color: white;
@@ -352,6 +373,7 @@ nav .init {
 
 #adelitas-page {
     background-color: #131313;
+    padding-bottom: 60px;
 }
 
 #adelitas-page .marquee-img {
@@ -360,27 +382,38 @@ nav .init {
     background-size: cover;
 }
 
-#adelitas-page .page-title h2 {
+#adelitas-page .page-title h2,
+#revan-page .page-title h2,
+#calendar-page .page-title h2 {
     font-family: 'Roboto', sans-serif;
     font-size: 2.4rem;
     font-weight: 300;
     color: #fff;
     letter-spacing: 1.52px;
-    text-align: right;
+    text-align: left;
     margin: 0 0 0.8px 0;
 }
 
-#adelitas-page .page-title h3 {
+#adelitas-page .page-title h3,
+#calendar-page .page-title h3,
+#revan-page .page-title h3 {
     font-family: 'Roboto', sans-serif;
     font-size: 1.733rem;
     font-weight: 300;
     color: #fff;
     letter-spacing: 0.98px;
-    text-align: right;
+    text-align: left;
     margin: 0 0 2.133rem 0;
 }
 
-#adelitas-desc {
+#adelitas-page .page-title h3,
+#adelitas-page .page-title h2 {
+    text-align: right;
+}
+
+#adelitas-desc,
+#revan-desc,
+#calendar-desc {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.76px;
     font-size: 1.333rem;
@@ -391,12 +424,18 @@ nav .init {
     grid-gap: 1rem;
 }
 
+#calendar-desc {
+    width: 60%;
+    font-size: 1.2rem;
+}
+
 #adelitas-page .portfolio-item-details {
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-#adelitas-desc p {
+#adelitas-desc p,
+#revan-desc p {
     margin: 0;
 }
 
@@ -431,6 +470,15 @@ nav .init {
 
 #safewalk-page {
     background-color: #171c22;
+}
+
+#calendar-page {
+    background-color: #272727;
+}
+
+#revan-page {
+    background-color: #292929;
+    padding-bottom: 30px;
 }
 
 #safewalk-team h4 {
@@ -501,7 +549,8 @@ nav .init {
     font-family: 'Orbitron', sans-serif;
 }
 
-#adelitas-page .visit-area span {
+#adelitas-page .visit-area span,
+#revan-page .visit-area span {
     font-family: 'Roboto', sans-serif;
     font-size: 1.33rem;
 }
@@ -671,9 +720,9 @@ nav .init {
         animation: navTransition 1s ease 0s 1 forwards;
     }
 
-    .portfolio-item {
+    /* .portfolio-item {
         padding: 64px;
-    }
+    } */
 
     #safewalk-page .portfolio-item-details {
         display: grid;
@@ -702,4 +751,41 @@ nav .init {
         white-space: nowrap;
         width: auto;
     }
+
+    .portfolio-item {
+        display: grid;
+        grid-template-rows: auto calc(0.63 * 100vw) auto;
+        padding: 60px 10px 10px 10px;
+        width: 100vw;
+        /* height: fit-content; */
+    }
+
+    #revan-page.portfolio-item {
+        display: grid;
+        grid-template-rows: auto auto auto;
+        padding: 60px 10px 30px 10px;
+        width: 100vw;
+        /* height: fit-content; */
+    }
+
+    .switcher {
+        height: 10px;
+    }
+
+    .marquee {
+        grid-template-rows: 1fr 10px;
+    }
+
+    #calendar-desc {
+        width: 100%;
+    }
+
+    .page-title h2,
+    .page-title h3 {
+        text-align: center !important;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+
 }

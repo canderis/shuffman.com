@@ -15,6 +15,9 @@
             display: none;
         }
     </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
 <body>
     <div id="hamburger">
@@ -34,8 +37,10 @@
                     <li class="init"><a _target="portfolio" class="nav-link" id="portfolio-link">portfolio</a></li>
                     <li id="portfolio-item-links">
                         <ol>
-                            <li><a id="safewalk-link" class="-active">SafeWalk</a></li>
-                            <li><a id="adelitas-link">Adelitas Way</a></li>
+                            <li><a id="adelitas-link" class="-active">Adelitas Way</a></li>
+                            <li><a id="calendar-link">Calendar App</a></li>
+                            <li><a id="safewalk-link">SafeWalk</a></li>
+                            <li><a id="revan-link">Revan Editor</a></li>
                         </ol>
                     </li>
                 </ul>
@@ -44,12 +49,58 @@
     </div>
     <div id='about-page'>
         <div id='about-wrap'>
-            <h2>Who am I?</h2>
-            <h3>I do web stuff.</h3>
-            <p>My name is Scott Huffman. I design, and I write code.</p>
+            <h2>About me</h2>
+            <p>Content coming soon....</p>
         </div>
     </div>
     <div id='portfolio-page'>
+        <div class="portfolio-item" id="adelitas-page">
+            <div class="page-title">
+                <h2>Adelitas Way</h2>
+                <h3>adelitaswaymusic.com</h3>
+            </div>
+            <div class="marquee">
+                <div class="marquee-img"></div>
+                <div class="switcher"></div>
+            </div>
+            <div class="portfolio-item-details">
+                <div id="adelitas-desc">
+                    <p>Designer and maintainer for the offical website of the hard rock band Adelitas Way.</p>
+                </div>
+                <div id="adelitas-visit">
+                    <a target="_blank" href="http://adelitaswaymusic.com/" class="visit-area">
+                        <span>Visit</span>
+                        <div class="post-link arrow" style="transform:rotate(180deg);">
+                            <div class="arrow-tail"></div>
+                            <div class="arrow-head">
+                                <div class="arrow-top-point">
+                                    <div class="arrow-point-size"></div>
+                                </div>
+                                <div class="arrow-bottom-point">
+                                    <div class="arrow-point-size"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="portfolio-item" id="calendar-page">
+            <div class="page-title">
+                <h2>Calendar App</h2>
+                <h3>Something to manage my life</h3>
+            </div>
+            <div class="marquee">
+                <div class="marquee-img"></div>
+                <div class="switcher"></div>
+            </div>
+            <div class="portfolio-item-details">
+                <div id="calendar-desc">
+                    <p>Conceptualized as a way to optimize managing my time, this application is a work in progress life-management tool written using Electron, and VueJS.</p>
+                    <p>The application uses a time-blocking system and task prioritization grid to insure the user never misses a deadline.</p>
+                </div>
+            </div>
+        </div>
         <div class="portfolio-item" id="safewalk-page">
             <div class="page-title">
                 <h2>SafeWalk Simulator</h2>
@@ -92,38 +143,37 @@
                 </div>
             </div>
         </div>
-
-        <div class="portfolio-item" id="adelitas-page">
-                <div class="page-title">
-                    <h2>Adelitas Way</h2>
-                    <h3>adelitaswaymusic.com</h3>
+        <div class="portfolio-item" id="revan-page">
+            <div class="page-title">
+                <h2>Revan Editor</h2>
+                <h3>Full-featured modding tool for Star Wars: Knights of the Old Republic</h3>
+            </div>
+            <div class="marquee">
+                <div class="marquee-img"></div>
+                <div class="switcher"></div>
+            </div>
+            <div class="portfolio-item-details">
+                <div id="revan-desc">
+                    <p>Electron-based open sourced video game editing tool for Star Wars Knights of the Old Republic.</p>
                 </div>
-                <div class="marquee">
-                    <div class="marquee-img"></div>
-                    <div class="switcher"></div>
-                </div>
-                <div class="portfolio-item-details">
-                    <div id="adelitas-desc">
-                        <p>Designer and maintainer for the offical website of the hard rock band Adelitas Way.</p>
-                    </div>
-                    <div id="adelitas-visit">
-                        <a target="_blank" href="http://adelitaswaymusic.com/" class="visit-area">
-                            <span>Visit</span>
-                            <div class="post-link arrow" style="transform:rotate(180deg);">
-                                <div class="arrow-tail"></div>
-                                <div class="arrow-head">
-                                    <div class="arrow-top-point">
-                                        <div class="arrow-point-size"></div>
-                                    </div>
-                                    <div class="arrow-bottom-point">
-                                        <div class="arrow-point-size"></div>
-                                    </div>
+                <div id="revan-visit">
+                    <a target="_blank" href="https://github.com/canderis/RevanEditor" class="visit-area">
+                        <span>Visit</span>
+                        <div class="post-link arrow" style="transform:rotate(180deg);">
+                            <div class="arrow-tail"></div>
+                            <div class="arrow-head">
+                                <div class="arrow-top-point">
+                                    <div class="arrow-point-size"></div>
+                                </div>
+                                <div class="arrow-bottom-point">
+                                    <div class="arrow-point-size"></div>
                                 </div>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
+        </div>
     </div>
     <!-- <div id="contact-page">
         <input class="input-box text" type="text" placeholder="name" />
@@ -132,7 +182,7 @@
     </div> -->
 
     <footer>
-        <span>© 2018, Scott Huffman</span><span></span><span><a href="https://github.com/canderis">GitHub</a> | <a href="https://www.linkedin.com/in/shuffman14/">LinkedIn</a></span>
+        <span></span><span>© 2018, Scott Huffman</span><span></span><span><a href="https://github.com/canderis">GitHub</a> | <a href="https://www.linkedin.com/in/shuffman14/">LinkedIn</a></span><span></span>
     </footer>
 <!-- </div> -->
 

@@ -43,12 +43,12 @@ const runAnimate = true;
     })();
 
     const renderer = new WebGLRenderer( {alpha: true} );
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize( document.body.offsetWidth, document.body.offsetHeight );
 
     const scene = new Scene();
 
     const camera = new PerspectiveCamera(
-        75, window.innerWidth / window.innerHeight, 1, 10000
+        75, document.body.offsetWidth / document.body.offsetHeight, 1, 10000
     );
 
     camera.position.z = 1000;
@@ -97,7 +97,7 @@ const runAnimate = true;
 
     const lim = Math.floor(
         ((x) => {
-            return -3.167849 + 0.01190006*x + 0.0000311615*(Math.pow(x, 2));
+            return 30 + 0.01190006*x + 0.0000311615*(Math.pow(x, 2));
         })(window.innerWidth)
     );
 
@@ -256,23 +256,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const safeWalkPage = document.getElementById('safewalk-page');
         const adelitasPage = document.getElementById('adelitas-page');
+        const calendarPage = document.getElementById('calendar-page');
+        const revanPage = document.getElementById('revan-page');
 
         const safeWalkLink = document.getElementById('safewalk-link');
         const adelitasLink = document.getElementById('adelitas-link');
-
+        const calendarLink = document.getElementById('calendar-link');
+        const revanLink = document.getElementById('revan-link');
 
         const mid = (page) => page.offsetTop + (page.offsetHeight * 2 / 3);
         // console.log(safeWalkPage.)
         const safeWalkMid = mid(safeWalkPage);
         const adelitasMid = mid(adelitasPage);
+        const calendarMid = mid(calendarPage);
+        const revanMid = mid(revanPage);
 
+
+        adelitasLink.addEventListener('click', () => {
+            adelitasPage.scrollIntoView({behavior: 'smooth'});
+        });
+        revanLink.addEventListener('click', () => {
+            revanPage.scrollIntoView({behavior: 'smooth'});
+        });
+
+        calendarLink.addEventListener('click', () => {
+            calendarPage.scrollIntoView({behavior: 'smooth'});
+        });
+
+        safeWalkLink.addEventListener('click', () => {
+            safeWalkPage.scrollIntoView({behavior: 'smooth'});
+        });
 
         const checkState = (() => {
-            let activeLink = safeWalkLink;
+            let activeLink = adelitasLink;
 
             return (newLink) => {
                 if (activeLink != newLink) {
-                    console.log('changing state');
                     activeLink.classList.remove('-active');
                     newLink.classList.add('-active');
                     activeLink = newLink;
@@ -283,15 +302,16 @@ document.addEventListener('DOMContentLoaded', () => {
         portfolioPage.addEventListener('scroll', (e) => {
             const scrollVal = e.target.scrollTop;
 
-            if (scrollVal < safeWalkMid) {
-                // state changed to safewalk
-                console.log('safewalk');
-                checkState(safeWalkLink);
-            } else if (scrollVal < adelitasMid) {
-                console.log('adelitas');
+            if (scrollVal < adelitasMid) {
                 checkState(adelitasLink);
+            } else if (scrollVal < calendarMid) {
+                // state changed to safewalk
+                checkState(calendarLink);
+            } else if (scrollVal < safeWalkMid) {
+                // state changed to safewalk
+                checkState(safeWalkLink);
             } else {
-                console.log('other' );
+                checkState(revanLink);
             }
         });
 
