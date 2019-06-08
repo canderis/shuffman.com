@@ -1,190 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>Scott Huffman | Design & Development</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu:300" rel="stylesheet">
-    <style>
-        html {
-            background-color: #232323;
-        }
+    <head>
+        <meta charset="utf-8" />
+        <title>Scott Huffman | Design & Development</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu:300" rel="stylesheet">
 
-        body {
-            display: none;
-        }
-    </style>
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+        <link rel="manifest" href="/icons/site.webmanifest">
+        <link rel="mask-icon" href="/icons/safari-pinned-tab.svg" color="#818181">
+        <link rel="shortcut icon" href="/icons/favicon.ico">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="msapplication-config" content="/icons/browserconfig.xml">
+        <meta name="msapplication-TileColor" content="#000000">
+        <meta name="theme-color" content="#ffffff">
+        <style>
+            html {
+                background-color: #232323;
+            }
 
-</head>
-<body>
-    <div id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-    <div id='home-page'>
-        <div class="init" id="app"></div>
-        <img class="init" id="logo" src="images/logo-w.svg">
-        <nav id="nav" class="show">
-            <div id="nav-wrap">
-                <h1 class="init" id="title"><a _target="home" class="nav-link -active" id="home-link">Scott Huffman</a></h1>
-                <ul id="nav-list" class="nav">
-                    <li class="init"><a href="mailto:contact@shuffman.com" _target="contact" class="nav-link" id="contact-link">contact</a></li>
-                    <li class="init"><a _target="about" class="nav-link" id="about-link">about</a></li>
-                    <li class="init"><a _target="portfolio" class="nav-link" id="portfolio-link">portfolio</a></li>
-                    <li id="portfolio-item-links">
-                        <ol>
-                            <li><a id="adelitas-link" class="-active">Adelitas Way</a></li>
-                            <li><a id="calendar-link">Calendar App</a></li>
-                            <li><a id="safewalk-link">SafeWalk</a></li>
-                            <li><a id="revan-link">Revan Editor</a></li>
-                        </ol>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <div id='about-page'>
-        <div id='about-wrap'>
-            <h2>About me</h2>
-            <p>Content coming soon....</p>
+            body {
+                display: none;
+            }
+        </style>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    </head>
+    <body>
+        <div id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </div>
-    <div id='portfolio-page'>
-        <div class="portfolio-item" id="adelitas-page">
-            <div class="page-title">
-                <h2>Adelitas Way</h2>
-                <h3>adelitaswaymusic.com</h3>
-            </div>
-            <div class="marquee">
-                <div class="marquee-img"></div>
-                <div class="switcher"></div>
-            </div>
-            <div class="portfolio-item-details">
-                <div id="adelitas-desc">
-                    <p>Designer and maintainer for the offical website of the hard rock band Adelitas Way.</p>
-                </div>
-                <div id="adelitas-visit">
-                    <a target="_blank" href="http://adelitaswaymusic.com/" class="visit-area">
-                        <span>Visit</span>
-                        <div class="post-link arrow" style="transform:rotate(180deg);">
-                            <div class="arrow-tail"></div>
-                            <div class="arrow-head">
-                                <div class="arrow-top-point">
-                                    <div class="arrow-point-size"></div>
-                                </div>
-                                <div class="arrow-bottom-point">
-                                    <div class="arrow-point-size"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-item" id="calendar-page">
-            <div class="page-title">
-                <h2>Calendar App</h2>
-                <h3>Something to manage my life</h3>
-            </div>
-            <div class="marquee">
-                <div class="marquee-img"></div>
-                <div class="switcher"></div>
-            </div>
-            <div class="portfolio-item-details">
-                <div id="calendar-desc">
-                    <p>Conceptualized as a way to optimize managing my time, this application is a work in progress life-management tool written using Electron, and VueJS.</p>
-                    <p>The application uses a time-blocking system and task prioritization grid to insure the user never misses a deadline.</p>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-item" id="safewalk-page">
-            <div class="page-title">
-                <h2>SafeWalk Simulator</h2>
-                <h3>JavaScript Space Walk Simulator</h3>
-            </div>
-            <div class="marquee">
-                <div class="marquee-img"></div>
-                <div class="switcher"></div>
-            </div>
-            <div class="portfolio-item-details">
-                <div id="safewalk-team">
-                    <h4>Team:</h4>
-                    <ul>
-                        <li>Stephen Davidson</li>
-                        <li>Christopher Bui</li>
-                        <li>Kevin Mathes</li>
-                        <li>Scott Huffman</li>
+        <div id="home-page">
+            <div class="init" id="app"></div>
+            <img alt="logo" class="init" id="logo" src="images/logo-w.svg">
+            <nav id="nav" class="show">
+                <div id="nav-wrap">
+                    <h1 class="init" id="title"><a class="nav-link nav-link--active" id="home-link">Scott Huffman</a></h1>
+                    <ul id="nav-list" class="nav">
+                        <li class="init"><a href="mailto:contact@shuffman.com" class="nav-link" id="contact-link">contact</a></li>
+                        <li class="init"><a class="nav-link" id="about-link">about</a></li>
+                        <li class="init"><a class="nav-link" id="portfolio-link">portfolio</a></li>
+                        <li id="portfolio-item-links">
+                            <ol>
+                                <li><a id="adelitas-link" class="portfolio-item-link--active">Adelitas Way</a></li>
+                                <li><a id="calendar-link">Calendar App</a></li>
+                                <li><a id="safewalk-link">SafeWalk</a></li>
+                                <li><a id="revan-link">Revan Editor</a></li>
+                            </ol>
+                        </li>
                     </ul>
                 </div>
-                <div id="safewalk-desc">
-                    <p>SafeWalk Simulator is a team academic project developed as a prototype for a software requirements engineering course.</p>
-                    <p>This project simulates NASA's SAFER manuevering system, with a focus on a redesigned Crew Display and Control Module (CDCM), i.e. the hand control module and display unit.</p>
-                    <p><a target="_blank" href="https://github.com/canderis/409-SpaceWalk-Sim">View on GitHub</a></p>
+            </nav>
+        </div>
+        <div id="about-page">
+            <div id="about-wrap">
+                <h2>About me</h2>
+                <p>Content coming soon....</p>
+            </div>
+        </div>
+        <div id="portfolio-page">
+            <div class="portfolio-item" id="adelitas-page">
+                <div class="page-title">
+                    <h2>Adelitas Way</h2>
+                    <h3>adelitaswaymusic.com</h3>
                 </div>
-                <div id="safewalk-visit">
-                    <a target="_blank" href="https://shuffman.com/SafeWalk" class="visit-area">
-                        <span>Visit</span>
-                        <div class="arrow">
-                            <div class="arrow-tail"></div>
-                            <div class="arrow-head">
-                                <div class="arrow-top-point">
-                                    <div class="arrow-point-size"></div>
-                                </div>
-                                <div class="arrow-bottom-point">
-                                    <div class="arrow-point-size"></div>
+                <div class="marquee">
+                    <div class="marquee-img"></div>
+                    <div class="switcher"></div>
+                </div>
+                <div class="portfolio-item-details">
+                    <div id="adelitas-desc">
+                        <p>Designer and maintainer for the offical website of the hard rock band Adelitas Way.</p>
+                    </div>
+                    <div id="adelitas-visit">
+                        <a rel="noopener" target="_blank" href="http://adelitaswaymusic.com/" class="visit-area">
+                            <span>Visit</span>
+                            <div class="post-link arrow" style="transform:rotate(180deg);">
+                                <div class="arrow-tail"></div>
+                                <div class="arrow-head">
+                                    <div class="arrow-top-point">
+                                        <div class="arrow-point-size"></div>
+                                    </div>
+                                    <div class="arrow-bottom-point">
+                                        <div class="arrow-point-size"></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </a>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" id="calendar-page">
+                <div class="page-title">
+                    <h2>Calendar App</h2>
+                    <h3>Something to manage my life</h3>
+                </div>
+                <div class="marquee">
+                    <div class="marquee-img"></div>
+                    <div class="switcher"></div>
+                </div>
+                <div class="portfolio-item-details">
+                    <div id="calendar-desc">
+                        <p>Conceptualized as a way to optimize managing my time, this application is a work in progress life-management tool written using Electron, and VueJS.</p>
+                        <p>The application uses a time-blocking system and task prioritization grid to insure the user never misses a deadline.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" id="safewalk-page">
+                <div class="page-title">
+                    <h2>SafeWalk Simulator</h2>
+                    <h3>JavaScript Space Walk Simulator</h3>
+                </div>
+                <div class="marquee">
+                    <div class="marquee-img"></div>
+                    <div class="switcher"></div>
+                </div>
+                <div class="portfolio-item-details">
+                    <div id="safewalk-team">
+                        <h4>Team:</h4>
+                        <ul>
+                            <li>Stephen Davidson</li>
+                            <li>Christopher Bui</li>
+                            <li>Kevin Mathes</li>
+                            <li>Scott Huffman</li>
+                        </ul>
+                    </div>
+                    <div id="safewalk-desc">
+                        <p>SafeWalk Simulator is a team academic project developed as a prototype for a software requirements engineering course.</p>
+                        <p>This project simulates NASA's SAFER manuevering system, with a focus on a redesigned Crew Display and Control Module (CDCM), i.e. the hand control module and display unit.</p>
+                        <p><a rel="noopener" target="_blank" href="https://github.com/canderis/409-SpaceWalk-Sim">View on GitHub</a></p>
+                    </div>
+                    <div id="safewalk-visit">
+                        <a rel="noopener" target="_blank" href="https://shuffman.com/SafeWalk" class="visit-area">
+                            <span>Visit</span>
+                            <div class="arrow">
+                                <div class="arrow-tail"></div>
+                                <div class="arrow-head">
+                                    <div class="arrow-top-point">
+                                        <div class="arrow-point-size"></div>
+                                    </div>
+                                    <div class="arrow-bottom-point">
+                                        <div class="arrow-point-size"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="portfolio-item" id="revan-page">
+                <div class="page-title">
+                    <h2>Revan Editor</h2>
+                    <h3>Full-featured modding tool for Star Wars: Knights of the Old Republic</h3>
+                </div>
+                <div class="marquee">
+                    <div class="marquee-img"></div>
+                    <div class="switcher"></div>
+                </div>
+                <div class="portfolio-item-details">
+                    <div id="revan-desc">
+                        <p>Electron-based open sourced video game editing tool for Star Wars Knights of the Old Republic.</p>
+                    </div>
+                    <div id="revan-visit">
+                        <a rel="noopener" target="_blank" href="https://github.com/canderis/RevanEditor" class="visit-area">
+                            <span>Visit</span>
+                            <div class="post-link arrow" style="transform:rotate(180deg);">
+                                <div class="arrow-tail"></div>
+                                <div class="arrow-head">
+                                    <div class="arrow-top-point">
+                                        <div class="arrow-point-size"></div>
+                                    </div>
+                                    <div class="arrow-bottom-point">
+                                        <div class="arrow-point-size"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="portfolio-item" id="revan-page">
-            <div class="page-title">
-                <h2>Revan Editor</h2>
-                <h3>Full-featured modding tool for Star Wars: Knights of the Old Republic</h3>
-            </div>
-            <div class="marquee">
-                <div class="marquee-img"></div>
-                <div class="switcher"></div>
-            </div>
-            <div class="portfolio-item-details">
-                <div id="revan-desc">
-                    <p>Electron-based open sourced video game editing tool for Star Wars Knights of the Old Republic.</p>
-                </div>
-                <div id="revan-visit">
-                    <a target="_blank" href="https://github.com/canderis/RevanEditor" class="visit-area">
-                        <span>Visit</span>
-                        <div class="post-link arrow" style="transform:rotate(180deg);">
-                            <div class="arrow-tail"></div>
-                            <div class="arrow-head">
-                                <div class="arrow-top-point">
-                                    <div class="arrow-point-size"></div>
-                                </div>
-                                <div class="arrow-bottom-point">
-                                    <div class="arrow-point-size"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <div id="contact-page">
-        <input class="input-box text" type="text" placeholder="name" />
-        <input class="input-box text" type="text" placeholder="email" />
-        <textarea class="input-box textarea" placeholder="message" name="Text1" cols="40" rows="5"></textarea>
-    </div> -->
+        <!-- <div id="contact-page">
+            <input class="input-box text" type="text" placeholder="name" />
+            <input class="input-box text" type="text" placeholder="email" />
+            <textarea class="input-box textarea" placeholder="message" name="Text1" cols="40" rows="5"></textarea>
+        </div> -->
 
-    <footer>
-        <span></span><span>© 2018, Scott Huffman</span><span></span><span><a href="https://github.com/canderis">GitHub</a> | <a href="https://www.linkedin.com/in/shuffman14/">LinkedIn</a></span><span></span>
-    </footer>
-<!-- </div> -->
+        <footer>
+            <span></span><span>© 2018, Scott Huffman</span><span></span><span><a href="https://github.com/canderis">GitHub</a> | <a href="https://www.linkedin.com/in/shuffman14/">LinkedIn</a></span><span></span>
+        </footer>
+        <!-- </div> -->
 
-</body>
+    </body>
 </html>
