@@ -113,8 +113,6 @@ class Background {
 			})(window.innerWidth)
 		);
 
-		console.log(lim);
-
 		const particles = [];
 		const geo = new PlaneGeometry(1024, 512);
 		for (let p = 0; p < lim; p++) {
