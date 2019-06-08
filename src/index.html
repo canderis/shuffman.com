@@ -50,10 +50,18 @@
 					</li>
 					<li id="portfolio-item-links">
 						<ol>
-							<li><a id="adelitas-link" class="portfolio-item-link--active">Adelitas Way</a></li>
-							<li><a id="calendar-link">Calendar App</a></li>
-							<li><a id="safewalk-link">SafeWalk</a></li>
-							<li><a id="revan-link">Revan Editor</a></li>
+							<li class="init">
+								<a href="#adelitas-page" id="adelitas-link">Adelitas Way</a>
+							</li>
+							<li class="init">
+								<a href="#calendar-page" id="calendar-link">Calendar App</a>
+							</li>
+							<li class="init">
+								<a href="#safewalk-page" id="safewalk-link">SafeWalk</a>
+							</li>
+							<li class="init">
+								<a href="#revan-page" id="revan-link">Revan Editor</a>
+							</li>
 						</ol>
 					</li>
 				</ul>
@@ -70,7 +78,7 @@
 			</div>
 		</div>
 		<div class="page" ps-page="/portfolio" ps-transition="bottom" id="portfolio-page">
-			<div class="portfolio-item" id="adelitas-page">
+			<div class="portfolio-item" c-nav-link="adelitas-link" id="adelitas-page">
 				<div class="page-title">
 					<h2>Adelitas Way</h2>
 					<h3>adelitaswaymusic.com</h3>
@@ -101,7 +109,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="portfolio-item" id="calendar-page">
+			<div class="portfolio-item" c-nav-link="calendar-link" id="calendar-page">
 				<div class="page-title">
 					<h2>Calendar App</h2>
 					<h3>Something to manage my life</h3>
@@ -117,7 +125,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="portfolio-item" id="safewalk-page">
+			<div class="portfolio-item" c-nav-link="safewalk-link" id="safewalk-page">
 				<div class="page-title">
 					<h2>SafeWalk Simulator</h2>
 					<h3>JavaScript Space Walk Simulator</h3>
@@ -159,7 +167,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="portfolio-item" id="revan-page">
+			<div class="portfolio-item" c-nav-link="revan-link" id="revan-page">
 				<div class="page-title">
 					<h2>Revan Editor</h2>
 					<h3>Full-featured modding tool for Star Wars: Knights of the Old Republic</h3>
