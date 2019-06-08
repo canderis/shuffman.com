@@ -1,43 +1,54 @@
 {
-  "name": "shuffman.local",
-  "version": "1.0.0",
-  "description": "My personal website",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server --open --config webpack.dev.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/canderis/shuffman.com.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/canderis/shuffman.com/issues"
-  },
-  "homepage": "https://github.com/canderis/shuffman.com#readme",
-  "devDependencies": {
-    "@babel/core": "^7.2.0",
-    "@babel/preset-env": "^7.2.0",
-    "babel-loader": "^8.0.4",
-    "clean-webpack-plugin": "^1.0.0",
-    "css-loader": "^2.0.0",
-    "eslint": "^5.10.0",
-    "eslint-config-google": "^0.11.0",
-    "file-loader": "^2.0.0",
-    "html-loader": "^0.5.5",
-    "html-webpack-plugin": "^3.2.0",
-    "style-loader": "^0.23.1",
-    "stylelint": "^9.9.0",
-    "stylelint-config-standard": "^18.2.0",
-    "webpack": "^4.27.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10",
-    "webpack-merge": "^4.1.5"
-  },
-  "dependencies": {
-    "three": "^0.99.0"
-  }
+	"name": "shuffman.local",
+	"version": "1.0.0",
+	"description": "My personal website",
+	"main": "index.js",
+	"scripts": {
+		"build": "webpack --config webpack.prod.js",
+		"dev": "webpack-dev-server --open --config webpack.dev.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/canderis/shuffman.com.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/canderis/shuffman.com/issues"
+	},
+	"homepage": "https://github.com/canderis/shuffman.com#readme",
+	"browserslist": [
+		"last 2 versions",
+		"> 1%",
+		"IE 10"
+	],
+	"devDependencies": {
+		"@babel/core": "7.2.0",
+		"@babel/preset-env": "7.2.0",
+		"@linthtml/linthtml": "^0.2.1",
+		"autoprefixer": "^9.6.0",
+		"babel-loader": "8.0.4",
+		"clean-webpack-plugin": "1.0.0",
+		"copy-webpack-plugin": "^5.0.3",
+		"css-loader": "2.0.0",
+		"eslint": "^5.10.0",
+		"eslint-config-prettier": "^4.3.0",
+		"eslint-plugin-prettier": "^3.1.0",
+		"file-loader": "2.0.0",
+		"html-loader": "0.5.5",
+		"html-webpack-plugin": "3.2.0",
+		"postcss-loader": "^3.0.0",
+		"prettier": "^1.17.1",
+		"style-loader": "0.23.1",
+		"stylelint": "9.9.0",
+		"stylelint-config-prettier": "^5.2.0",
+		"webpack": "4.27.1",
+		"webpack-cli": "3.1.2",
+		"webpack-dev-server": "^3.4.0",
+		"webpack-merge": "4.1.5"
+	},
+	"dependencies": {
+		"three": "^0.99.0"
+	}
 }
