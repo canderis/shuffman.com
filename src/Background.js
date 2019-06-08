@@ -48,13 +48,13 @@ class Background {
 		})();
 
 		const renderer = new WebGLRenderer({ alpha: true });
-		renderer.setSize(document.body.offsetWidth, document.body.offsetHeight);
+		renderer.setSize(window.innerWidth, window.innerHeight);
 
 		const scene = new Scene();
 
 		const camera = new PerspectiveCamera(
 			75,
-			document.body.offsetWidth / document.body.offsetHeight,
+			window.innerWidth / window.innerHeight,
 			1,
 			10000
 		);
@@ -112,6 +112,8 @@ class Background {
 				return 30 + 0.01190006 * x + 0.0000311615 * Math.pow(x, 2);
 			})(window.innerWidth)
 		);
+
+		console.log(lim);
 
 		const particles = [];
 		const geo = new PlaneGeometry(1024, 512);
