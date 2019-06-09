@@ -1,15 +1,15 @@
 ("use strict");
 
 import { Switcher } from "./PageSwitcher.js";
-import Background from "./Background.js";
+// import Background from "./Background.js";
 import Hamburger from "./Hamburger.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-	const background = new Background("app");
 	const hamburger = new Hamburger("nav", 1100);
 	hamburger.disableHamburger();
 
-	background.build();
+	let homeLoaded = false;
+	let background;
 
 	const portfolioItemLinks = document.getElementById("portfolio-item-links");
 	const portfolioPage = document.getElementById("portfolio-page");
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		portfolioItemLinks.classList.add("show");
 		nav.classList.add("nav--pages");
 		hamburger.enableHamburger();
-		background.runAnimate = false;
+		if(homeLoaded) background.runAnimate = false;
 	});
 
 	portfolioPage.addEventListener("onFrom", $event => {
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	aboutPage.addEventListener("onTo", $event => {
 		nav.classList.add("nav--pages");
 		hamburger.enableHamburger();
-		background.runAnimate = false;
+		if(homeLoaded) background.runAnimate = false;
 	});
 
 	aboutPage.addEventListener("onFrom", $event => {
@@ -44,7 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
 	const homePage = document.getElementById("home-page");
 
 	homePage.addEventListener("onTo", $event => {
-		background.runAnimate = true;
+		if(!homeLoaded){
+			homeLoaded = true;
+			// eslint-disable-next-line
+			import('./Background.js').then(module => {
+				const Background = module.default;
+				background = new Background("app");
+				background.build();
+			});
+		}
+		else{
+			background.runAnimate = true;
+		}
 	});
 
 	new Switcher();
