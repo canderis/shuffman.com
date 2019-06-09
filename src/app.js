@@ -2,10 +2,9 @@
 
 import { Switcher } from "./PageSwitcher.js";
 import Background from "./Background.js";
+import Hamburger from "./Hamburger.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-	const Hamburger = require("./Hamburger.js");
-
 	const background = new Background("app");
 	background.build();
 
@@ -31,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	new Switcher();
-	new Hamburger("nav", 940);
+	const hamburger = new Hamburger("nav", 1100);
 
 	const list = document.getElementsByClassName("init");
 	let i = 125;
