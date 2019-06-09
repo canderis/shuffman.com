@@ -6,31 +6,48 @@ import Hamburger from "./Hamburger.js";
 
 document.addEventListener("DOMContentLoaded", () => {
 	const background = new Background("app");
+	const hamburger = new Hamburger("nav", 1100);
+	hamburger.disableHamburger();
+
 	background.build();
 
 	const portfolioItemLinks = document.getElementById("portfolio-item-links");
 	const portfolioPage = document.getElementById("portfolio-page");
+	const aboutPage = document.getElementById("about-page");
+
+	const nav = document.getElementById("nav");
 
 	portfolioPage.addEventListener("onTo", $event => {
 		portfolioItemLinks.classList.add("show");
+		nav.classList.add("nav--pages");
+		hamburger.enableHamburger();
+		background.runAnimate = false;
 	});
 
 	portfolioPage.addEventListener("onFrom", $event => {
 		portfolioItemLinks.classList.remove("show");
+		nav.classList.remove("nav--pages");
+		hamburger.disableHamburger();
+	});
+
+	aboutPage.addEventListener("onTo", $event => {
+		nav.classList.add("nav--pages");
+		hamburger.enableHamburger();
+		background.runAnimate = false;
+	});
+
+	aboutPage.addEventListener("onFrom", $event => {
+		nav.classList.remove("nav--pages");
+		hamburger.disableHamburger();
 	});
 
 	const homePage = document.getElementById("home-page");
-
-	homePage.addEventListener("onFrom", $event => {
-		background.runAnimate = false;
-	});
 
 	homePage.addEventListener("onTo", $event => {
 		background.runAnimate = true;
 	});
 
 	new Switcher();
-	const hamburger = new Hamburger("nav", 1100);
 
 	const list = document.getElementsByClassName("init");
 	let i = 125;

@@ -42,7 +42,6 @@ nav.show {
 nav div {
 	margin: auto;
 	width: fit-content;
-	padding-left: 10px;
 	box-sizing: border-box;
 }
 
@@ -642,38 +641,6 @@ nav .init {
 		top: 30vh;
 	}
 
-	nav.top {
-		top: 64px;
-	}
-
-	@keyframes navTransition {
-		0% {
-		}
-
-		99.9% {
-			background-color: #0000;
-		}
-
-		100% {
-			/* top: 0; */
-			text-align: left;
-			width: fit-content;
-			padding: 64px 20px 20px 20px;
-			background-color: hsla(0, 0%, 14%, 0.867);
-			height: 100%;
-		}
-	}
-
-	nav.portfolio {
-		top: 0;
-
-		/* text-align: left; */
-		animation: navTransition 1s ease 0s 1 forwards;
-	}
-
-	/* .portfolio-item {
-		padding: 64px;
-	} */
 
 	#safewalk-page .portfolio-item-details {
 		display: grid;
@@ -752,6 +719,31 @@ nav .init {
 	.page-title h3 {
 		text-align: center !important;
 	}
+
+	.nav--pages {
+		animation: navTransition 1s ease 0s 1 forwards;
+	}
+
+	.nav--pages.-show {
+		background-color: hsla(0, 0%, 14%, 0.867);
+	}
+
+	@keyframes navTransition {
+		0% {
+			transform: translateY(0);
+		}
+		80% {
+			transform: translateY(-100vh);
+		}
+		100% {
+			top: 0px;
+			padding: 60px 20px;
+			text-align: left;
+			height: 100vh;
+			width: fit-content;
+		}
+	}
+
 }
 
 @media only screen and (max-width: 500px) {
