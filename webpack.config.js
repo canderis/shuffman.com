@@ -20,8 +20,13 @@ module.exports = {
 				}
 			},
 			{
-				test: /\.css$/,
-				use: ["style-loader", "css-loader", "postcss-loader"]
+				test: /\.(css|scss)$/,
+				use: [
+					"style-loader",
+					"css-loader",
+					"postcss-loader",
+					"sass-loader"
+				]
 			},
 			{
 				test: /\.html$/,
@@ -49,11 +54,11 @@ module.exports = {
 			}
 		}),
 		new CopyPlugin([{ from: "./src/icons", to: "./icons" }])
-    ],
-    optimization: {
+	],
+	optimization: {
 		usedExports: true,
 		splitChunks: {
 			chunks: "all"
-        }
+		}
 	}
 };
