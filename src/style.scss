@@ -22,7 +22,7 @@ footer {
 	grid-template-columns: 1fr auto 1fr auto 1fr;
 	color: #979797;
 	box-sizing: border-box;
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 	font-size: 0.9rem;
 	letter-spacing: 1.5px;
@@ -37,19 +37,20 @@ ul li {
 
 a {
 	color: #fff;
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 	text-decoration: none;
 	transition: 0.25s;
 
-	&, &:visited {
+	&,
+	&:visited {
 		text-decoration: none;
 		position: relative;
 	}
 
 	&::after,
 	&:visited::after {
-		content: '';
+		content: "";
 		height: 1px;
 		position: absolute;
 		bottom: -2px;
@@ -88,7 +89,7 @@ nav {
 	}
 
 	#title {
-		font-family: 'Roboto', sans-serif;
+		font-family: "Roboto", sans-serif;
 		font-size: 2rem;
 		color: #fff;
 		width: 180px;
@@ -105,7 +106,7 @@ nav {
 	}
 
 	ul {
-		font-family: 'Lato', sans-serif;
+		font-family: "Lato", sans-serif;
 		line-height: 150%;
 		font-weight: 300;
 		font-size: 1.5rem;
@@ -114,7 +115,8 @@ nav {
 		margin: 0;
 		padding: 0;
 
-		li, h1 {
+		li,
+		h1 {
 			animation: bounce 1s ease 0s 1;
 		}
 
@@ -136,8 +138,6 @@ nav {
 		width: fit-content;
 		box-sizing: border-box;
 	}
-
-
 }
 
 .input-box {
@@ -149,7 +149,7 @@ nav {
 	border-bottom: 1px #979797 solid;
 	width: 500px;
 	font-size: 20px;
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 	color: white;
 	outline: none;
@@ -224,7 +224,7 @@ canvas {
 	}
 
 	.portfolio-item {
-		font-family: 'Roboto', sans-serif;
+		font-family: "Roboto", sans-serif;
 		padding-left: calc((100vw - 80vh) / 2);
 		padding-right: 4rem;
 		padding-top: 2.133rem;
@@ -280,7 +280,7 @@ canvas {
 		background-color: #272727;
 
 		.marquee-img {
-			background: url('images/Calendar_0.png') top left no-repeat #54749c;
+			background: url("images/Calendar_0.png") top left no-repeat #54749c;
 			background-size: contain;
 		}
 
@@ -301,7 +301,8 @@ canvas {
 		}
 
 		.marquee-img {
-			background: url('images/Revan_0.png') center center no-repeat #171717;
+			background: url("images/Revan_0.png") center center no-repeat
+				#171717;
 			min-height: 300px;
 		}
 	}
@@ -311,12 +312,13 @@ canvas {
 		padding-bottom: 60px;
 		.marquee-img {
 			/* height: 100%; */
-			background: url('images/AdelitasWay_0.png') center center no-repeat;
+			background: url("images/AdelitasWay_0.png") center center no-repeat;
 			background-size: cover;
 		}
 
 		.page-title {
-			h2, h3 {
+			h2,
+			h3 {
 				text-align: right;
 			}
 		}
@@ -331,13 +333,13 @@ canvas {
 		background-color: #171c22;
 
 		.marquee-img {
-			background: url('images/SafeWalk_0.png') bottom right no-repeat #1a5dac;
+			background: url("images/SafeWalk_0.png") bottom right no-repeat
+				#1a5dac;
 			background-size: contain;
 		}
 
-
 		h2 {
-			font-family: 'Orbitron', sans-serif;
+			font-family: "Orbitron", sans-serif;
 			text-align: right;
 			font-size: 2.4rem;
 			font-weight: 300;
@@ -346,7 +348,7 @@ canvas {
 		}
 
 		h3 {
-			font-family: 'Ubuntu', sans-serif;
+			font-family: "Ubuntu", sans-serif;
 			text-align: right;
 			font-size: 1.733rem;
 			font-weight: 200;
@@ -355,13 +357,12 @@ canvas {
 		}
 
 		h4 {
-			font-family: 'Orbitron', sans-serif;
+			font-family: "Orbitron", sans-serif;
 			font-size: 0.9333rem;
 			letter-spacing: 0.76px;
 			text-align: justify;
 			margin: 0;
 		}
-
 
 		.portfolio-item-details {
 			display: flex;
@@ -372,14 +373,12 @@ canvas {
 			flex-shrink: 1;
 		}
 
-
-
 		ul {
 			padding: 0;
 			margin: 0;
 
 			li {
-				font-family: 'Ubuntu', sans-serif;
+				font-family: "Ubuntu", sans-serif;
 				font-size: 0.8rem;
 				letter-spacing: 0.3px;
 				text-align: justify;
@@ -399,7 +398,7 @@ canvas {
 				margin: 0;
 			}
 
-			font-family: 'Ubuntu', sans-serif;
+			font-family: "Ubuntu", sans-serif;
 			letter-spacing: 0.76px;
 			font-size: 0.9333rem;
 			line-height: 1rem;
@@ -411,21 +410,16 @@ canvas {
 		}
 
 		.visit-area span {
-			font-family: 'Orbitron', sans-serif;
+			font-family: "Orbitron", sans-serif;
 		}
 	}
 
-
 	#adelitas-page .visit-area span,
 	#revan-page .visit-area span {
-		font-family: 'Roboto', sans-serif;
+		font-family: "Roboto", sans-serif;
 		font-size: 1.33rem;
 	}
 }
-
-
-
-
 
 #about-page {
 	background-color: #000b;
@@ -443,12 +437,6 @@ canvas {
 		margin-top: calc(50vh - 100px);
 	}
 }
-
-
-
-
-
-
 
 .arrow {
 	width: 150px;
@@ -511,6 +499,8 @@ canvas {
 	}
 }
 
+
+
 @media only screen and (max-width: 1100px) {
 	/* Mobile Mode */
 	html {
@@ -530,7 +520,6 @@ canvas {
 		text-align: center;
 		top: 30vh;
 	}
-
 
 	#safewalk-page .portfolio-item-details {
 		display: grid;
@@ -633,9 +622,7 @@ canvas {
 			width: fit-content;
 		}
 	}
-
 }
 
 @media only screen and (max-width: 500px) {
-
 }

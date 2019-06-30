@@ -1,11 +1,14 @@
-("use strict");
+"use strict";
 
 import { Switcher } from "./PageSwitcher.js";
-// import Background from "./Background.js";
 import Hamburger from "./Hamburger.js";
+import Animate from "./Animate.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
 	const hamburger = new Hamburger("nav", 1100);
+
+	new Animate();
 	hamburger.disableHamburger();
 
 	let homeLoaded = false;
@@ -81,24 +84,23 @@ document.addEventListener("DOMContentLoaded", () => {
 		});
 	});
 
-	const pages = Array.from(
-		portfolioPage.getElementsByClassName("portfolio-item")
-	);
-	const pageLinks = pages.map(page =>
-		document.getElementById(page.getAttribute("c-nav-link"))
-	);
+	let activeLink;
+	const portfolioNavLinkChange = (entries) => {
+		entries.forEach((entry) => {
+			if(entry.isIntersecting && entry.intersectionRatio >= 0.55) {
+				if(activeLink) activeLink.classList.remove('-active');
 
-	let active = 0;
-	pageLinks[active].classList.add("-active");
+				const id = entry.target.getAttribute('id');
+				activeLink = document.querySelector(`[href="#${id}"]`);
+				activeLink.classList.add('-active');
+			}
+		});
+	}
 
-	portfolioPage.addEventListener("scroll", e => {
-		const scrollVal = e.target.scrollTop;
-		let range = Math.floor(scrollVal / window.innerHeight);
-		if (range >= pageLinks.length) range = pageLinks.length - 1;
-		if (range != active) {
-			pageLinks[active].classList.remove("-active");
-			active = range;
-			pageLinks[active].classList.add("-active");
-		}
+	const observer = new IntersectionObserver(portfolioNavLinkChange, { threshold: 0.55 });
+
+	portfolioPage.querySelectorAll(".portfolio-item").forEach( page => {
+		observer.observe(page);
 	});
+
 });
