@@ -6,10 +6,10 @@ import Animate from "./Animate.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
-	const hamburger = new Hamburger("nav", 1100);
+	const hamburger = new Hamburger("nav");
 
 	new Animate();
-	hamburger.disableHamburger();
+	// hamburger.disableHamburger();
 
 	let homeLoaded = false;
 	let background;
@@ -23,25 +23,25 @@ document.addEventListener("DOMContentLoaded", () => {
 	portfolioPage.addEventListener("onTo", $event => {
 		portfolioItemLinks.classList.add("show");
 		nav.classList.add("nav--pages");
-		hamburger.enableHamburger();
+		// hamburger.enableHamburger();
 		if(homeLoaded) background.runAnimate = false;
 	});
 
 	portfolioPage.addEventListener("onFrom", $event => {
 		portfolioItemLinks.classList.remove("show");
 		nav.classList.remove("nav--pages");
-		hamburger.disableHamburger();
+		// hamburger.disableHamburger();
 	});
 
 	aboutPage.addEventListener("onTo", $event => {
 		nav.classList.add("nav--pages");
-		hamburger.enableHamburger();
+		// hamburger.enableHamburger();
 		if(homeLoaded) background.runAnimate = false;
 	});
 
 	aboutPage.addEventListener("onFrom", $event => {
 		nav.classList.remove("nav--pages");
-		hamburger.disableHamburger();
+		// hamburger.disableHamburger();
 	});
 
 	const homePage = document.getElementById("home-page");
@@ -58,6 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 		else{
 			background.runAnimate = true;
+			background.animate();
 		}
 	});
 

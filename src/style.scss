@@ -22,7 +22,7 @@ footer {
 	grid-template-columns: 1fr auto 1fr auto 1fr;
 	color: #979797;
 	box-sizing: border-box;
-	font-family: "Roboto", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-weight: 300;
 	font-size: 0.9rem;
 	letter-spacing: 1.5px;
@@ -37,7 +37,6 @@ ul li {
 
 a {
 	color: #fff;
-	font-family: "Roboto", sans-serif;
 	font-weight: 300;
 	text-decoration: none;
 	transition: 0.25s;
@@ -76,28 +75,18 @@ a {
 
 nav {
 	position: absolute;
-	top: 10vh;
-	width: calc((100vw - 80vh) / 2);
-	cursor: pointer;
+	top: 60px;
+	left: 60px;
 	z-index: -1;
 	opacity: 0;
 	transition: 0.5s;
 
+	cursor: pointer;
+
+
 	.init {
 		transform: translateX(-100vw);
 		animation: none;
-	}
-
-	#title {
-		font-family: "Roboto", sans-serif;
-		font-size: 2rem;
-		color: #fff;
-		width: 180px;
-		font-weight: 300;
-		letter-spacing: 5.5px;
-		grid-area: title;
-		margin: 0 0 10px 0;
-		line-height: 120%;
 	}
 
 	&.show {
@@ -106,7 +95,7 @@ nav {
 	}
 
 	ul {
-		font-family: "Lato", sans-serif;
+		font-family: "Open Sans", sans-serif;
 		line-height: 150%;
 		font-weight: 300;
 		font-size: 1.5rem;
@@ -149,7 +138,7 @@ nav {
 	border-bottom: 1px #979797 solid;
 	width: 500px;
 	font-size: 20px;
-	font-family: "Roboto", sans-serif;
+	font-family: "Open Sans", sans-serif;
 	font-weight: 300;
 	color: white;
 	outline: none;
@@ -160,6 +149,63 @@ nav {
 		height: 300px;
 		resize: none;
 	}
+}
+
+.neon-border {
+	width: 60vw;
+	height: 40vh;
+	box-shadow: 0 0 30px 16px #bb32a155, inset 0 0 26px 0px #bb32a155;
+	z-index: 10000;
+	position: absolute;
+	top: 30vh;
+	margin: auto;
+	left: 20vw;
+	display: grid;
+	grid-template-rows: 1fr auto auto auto 1fr;
+	grid-template-areas: "space" "title" "sub1" "sub2";
+
+	transition: 0.5s;
+
+	h1,
+	h2 {
+		color: white;
+		text-align: center;
+		font-family: "Open Sans", sans-serif;
+		margin: 0;
+	}
+
+	h1 {
+		grid-area: title;
+		font-size: 4rem;
+		font-weight: 300;
+	}
+
+	h2 {
+		border-top: solid 1px #60cac8;
+		margin: auto;
+		width: fit-content;
+	}
+	.sub1 {
+		grid-area: sub1;
+		font-weight: 100;
+		padding-top: 6px;
+	}
+
+	.sub2 {
+		grid-area: sub2;
+	}
+}
+
+.neon-border-alt {
+	width: 40vw;
+	height: 60vh;
+	box-shadow: 0 0 30px 16px #f9557b55, inset 0 0 26px 0px #f9557b55;
+	z-index: 10000;
+	position: absolute;
+	top: 20vh;
+	margin: auto;
+	left: 30vw;
+	transition: 0.5s;
 }
 
 #app {
@@ -224,7 +270,7 @@ canvas {
 	}
 
 	.portfolio-item {
-		font-family: "Roboto", sans-serif;
+		font-family: "Open Sans", sans-serif;
 		padding-left: calc((100vw - 80vh) / 2);
 		padding-right: 4rem;
 		padding-top: 2.133rem;
@@ -323,7 +369,6 @@ canvas {
 			width: 100%;
 			object-position: center;
 			object-fit: cover;
-
 		}
 
 		.page-title {
@@ -359,7 +404,7 @@ canvas {
 		}
 
 		h3 {
-			font-family: "Ubuntu", sans-serif;
+			font-family: "Open Sans", sans-serif;
 			text-align: right;
 			font-size: 1.733rem;
 			font-weight: 200;
@@ -388,7 +433,7 @@ canvas {
 			margin: 0;
 
 			li {
-				font-family: "Ubuntu", sans-serif;
+				font-family: "Open Sans", sans-serif;
 				font-size: 0.8rem;
 				letter-spacing: 0.3px;
 				text-align: justify;
@@ -408,7 +453,7 @@ canvas {
 				margin: 0;
 			}
 
-			font-family: "Ubuntu", sans-serif;
+			font-family: "Open Sans", sans-serif;
 			letter-spacing: 0.76px;
 			font-size: 0.9333rem;
 			line-height: 1rem;
@@ -426,7 +471,7 @@ canvas {
 
 	#adelitas-page .visit-area span,
 	#revan-page .visit-area span {
-		font-family: "Roboto", sans-serif;
+		font-family: "Open Sans", sans-serif;
 		font-size: 1.33rem;
 	}
 }
@@ -509,12 +554,24 @@ canvas {
 	}
 }
 
-
-
 @media only screen and (max-width: 1100px) {
 	/* Mobile Mode */
 	html {
 		font-size: 2vh;
+	}
+
+	.neon-border {
+		width: 80vw;
+		height: 60vh;
+		top: 20vh;
+		left: 10vw;
+	}
+
+	.neon-border-alt {
+		width: 60vw;
+		height: 80vh;
+		top: 10vh;
+		left: 20vw;
 	}
 
 	#hamburger.portfolio {
@@ -523,12 +580,6 @@ canvas {
 
 	#logo {
 		display: none;
-	}
-
-	nav {
-		width: 100%;
-		text-align: center;
-		top: 30vh;
 	}
 
 	#safewalk-page .portfolio-item-details {
@@ -634,5 +685,18 @@ canvas {
 	}
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 850px) {
+	.neon-border {
+		width: 90vw;
+		height: 70vh;
+		top: 15vh;
+		left: 5vw;
+	}
+
+	.neon-border-alt {
+		width: 70vw;
+		height: 90vh;
+		top: 5vh;
+		left: 15vw;
+	}
 }

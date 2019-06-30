@@ -3,9 +3,11 @@
 <head>
 	<meta charset="utf-8" />
 	<title>Scott Huffman | Design & Development</title>
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu:300" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,700,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
@@ -27,6 +29,9 @@
 		.page {
 			background-color: #232323;
 		}
+		.init {
+			opacity: 0;
+		}
 	</style>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,17 +42,15 @@
 		<div id="nav-wrap">
 			<ul id="nav-list" class="nav">
 				<li>
-					<h1 class="init" id="title">
-						<a ps-route="/" class="nav-link nav-link-active" id="home-link">Scott Huffman</a>
-					</h1>
+					<a ps-route="/" class="nav-link nav-link-active" id="home-link">Home</a>
 				</li>
-				<li class="init">
+				<li>
 					<a href="mailto:contact@shuffman.com" class="nav-link" id="contact-link">contact</a>
 				</li>
-				<li class="init">
+				<li>
 					<a ps-route="/about" class="nav-link" ps-id="about-link">about</a>
 				</li>
-				<li class="init">
+				<li>
 					<a ps-route="/portfolio" class="nav-link" id="portfolio-link">portfolio</a>
 				</li>
 				<li id="portfolio-item-links">
@@ -71,7 +74,14 @@
 	</nav>
 	<div class="page" ps-page="/" id="home-page">
 		<div class="init" id="app"></div>
-		<img alt="logo" class="init" id="logo" src="images/logo-w.svg">
+		<div class="init neon-border">
+			<h1>Scott Huffman</h1>
+			<h2 class="sub1">UX Designer <span>|</span> UI Developer</h2>
+		</div>
+		<div class="init neon-border-alt">
+
+		</div>
+
 	</div>
 	<div class="page" ps-page="/about" ps-transition="left" id="about-page">
 		<div id="about-wrap">
