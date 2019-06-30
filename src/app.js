@@ -23,30 +23,30 @@ document.addEventListener("DOMContentLoaded", () => {
 	portfolioPage.addEventListener("onTo", $event => {
 		portfolioItemLinks.classList.add("show");
 		nav.classList.add("nav--pages");
-		// hamburger.enableHamburger();
+
 		if(homeLoaded) background.runAnimate = false;
 	});
 
 	portfolioPage.addEventListener("onFrom", $event => {
 		portfolioItemLinks.classList.remove("show");
 		nav.classList.remove("nav--pages");
-		// hamburger.disableHamburger();
 	});
 
 	aboutPage.addEventListener("onTo", $event => {
 		nav.classList.add("nav--pages");
-		// hamburger.enableHamburger();
 		if(homeLoaded) background.runAnimate = false;
 	});
 
 	aboutPage.addEventListener("onFrom", $event => {
 		nav.classList.remove("nav--pages");
-		// hamburger.disableHamburger();
 	});
 
 	const homePage = document.getElementById("home-page");
 
 	homePage.addEventListener("onTo", $event => {
+		if(window.innerWidth > 1100) hamburger.enableHamburger();
+		else hamburger.disableHamburger();
+
 		if(!homeLoaded){
 			homeLoaded = true;
 			// eslint-disable-next-line
@@ -60,6 +60,10 @@ document.addEventListener("DOMContentLoaded", () => {
 			background.runAnimate = true;
 			background.animate();
 		}
+	});
+
+	homePage.addEventListener("onFrom", $event => {
+		hamburger.enableHamburger();
 	});
 
 	new Switcher();

@@ -83,7 +83,6 @@ nav {
 
 	cursor: pointer;
 
-
 	.init {
 		transform: translateX(-100vw);
 		animation: none;
@@ -565,6 +564,8 @@ canvas {
 		height: 60vh;
 		top: 20vh;
 		left: 10vw;
+		grid-template-rows: auto auto auto 1fr;
+		grid-template-areas: "title" "sub1" "sub2";
 	}
 
 	.neon-border-alt {
@@ -572,6 +573,14 @@ canvas {
 		height: 80vh;
 		top: 10vh;
 		left: 20vw;
+	}
+
+	nav {
+		position: absolute;
+		top: 40%;
+		width: 100%;
+		text-align: center;
+		left: inherit;
 	}
 
 	#hamburger.portfolio {
