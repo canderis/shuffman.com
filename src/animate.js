@@ -5,6 +5,8 @@ c-threshold
 c-duration
 */
 
+"use strict";
+
 export class Animate {
 	constructor() {
 		this.buildStylesheet();
@@ -30,7 +32,11 @@ export class Animate {
 					entry.isIntersecting &&
 					entry.intersectionRatio >= threshold
 				) {
-					el.classList.add("c-animation");
+					const src = entry.target.getAttribute("c-animate-src");
+					if (src) {
+						entry.target.setAttribute("src", src);
+					}
+					entry.target.classList.add("c-animation");
 					observer.disconnect();
 				}
 			});

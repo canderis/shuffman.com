@@ -53,7 +53,8 @@ module.exports = {
 				collapseWhitespace: true
 			}
 		}),
-		new CopyPlugin([{ from: "./src/icons", to: "./icons" }])
+		new CopyPlugin([{ from: "./src/icons", to: "./icons" }]),
+		new CopyPlugin([{ from: "./src/images", to: "./images" }])
 	],
 	optimization: {
 		usedExports: true,
