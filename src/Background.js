@@ -5,17 +5,15 @@ import {
 	Clock,
 	WebGLRenderer,
 	Scene,
-	PerspectiveCamera,
-	DirectionalLight,
-	OrbitControls,
 	PlaneGeometry,
 	TextureLoader,
 	MeshLambertMaterial,
 	Mesh,
-	PointLight
+	Color,
+	PerspectiveCamera,
+	PointLight,
+	MeshPhongMaterial
 } from "three";
-
-import * as THREE from "three";
 
 class Background {
 	constructor(hook) {
@@ -58,24 +56,16 @@ class Background {
 		renderer.setSize(this.width, this.height);
 
 		const scene = new Scene();
-		scene.background = new THREE.Color(0x000000);
+		scene.background = new Color(0x000000);
 
-		// Set some camera attributes.
-		const VIEW_ANGLE = 60;
-		const ASPECT = this.width / this.height;
-		const NEAR = 0.1;
-		const FAR = 10000;
-
-		const camera = new THREE.PerspectiveCamera(
-			VIEW_ANGLE,
-			ASPECT,
-			NEAR,
-			FAR
+		const camera = new PerspectiveCamera(
+			60,
+			this.width / this.height,
+			0.1,
+			10000
 		);
 		camera.position.set(0, 200, 1000);
 		scene.add(camera);
-
-		// const light = new DirectionalLight(0xffffff, 0.5);
 
 		const light1 = new PointLight(0xbb32a1, 1, 3000, 2);
 		light1.position.set(-800, 200, -300);
@@ -99,53 +89,20 @@ class Background {
 
 		const texture = new TextureLoader().load(smoke);
 
-		// Set up the sphere vars
-		const RADIUS = 50;
-		const SEGMENTS = 16;
-		const RINGS = 16;
-
-		// create the sphere's material
-		const sphereMaterial = new THREE.MeshPhongMaterial({
+		const sphereMaterial = new MeshPhongMaterial({
 			color: 0xbb32a1,
 			shininess: 100,
 			specular: 0x050505
 		});
 
-		// Create a new mesh with
-		// sphere geometry - we will cover
-		// the sphereMaterial next!
-
-		const floor = new Mesh(
-			new THREE.PlaneGeometry(10000, 10000),
-			sphereMaterial
-		);
+		const floor = new Mesh(new PlaneGeometry(10000, 10000), sphereMaterial);
 
 		floor.rotateX(-Math.PI / 2);
 
-		// Move the Sphere back in Z so we
-		// can see it.
 		floor.position.z = 0;
 		floor.position.y = 0;
 
-		// Finally, add the sphere to the scene.
 		scene.add(floor);
-
-		// const colors = [
-		// 	0xf1697f,
-		// 	0xf97859,
-		// 	0x7d47b6,
-		// 	0xf58b59,
-		// 	0xcb85a9,
-		// 	0xff8866,
-		// 	0xda7cba,
-		// 	0xb8a4eb,
-		// 	0x6c3fa8,
-		// 	0xfd995d,
-		// 	0x4987d2,
-		// 	0x3c6f8c,
-		// 	0x4987d2,
-		// 	0x0096d1
-		// ];
 
 		const colors = [
 			0x579d9c,
@@ -192,37 +149,11 @@ class Background {
 		for (let p = 0; p < lim; p++) {
 			const particle = new Mesh(geo, materials[p % materials.length]);
 
-			// particle.position.set(
-			// 	p * 100,
-			// 	between(-1024, this.height),
-			// 	between(0, 700)
-			// );
-
-			// if (p < lim / 2) {
-			//ponsition left
-			// particle.position.set(
-			// 	p * 100,
-			// 	between(-1024, this.height),
-			// 	between(0, 700)
-			// );
-
-			// } else {
-			// 	particle.position.set(
-			// 		between(-1024, this.width + 256),
-			// 		between(-1024, this.height),
-			// 		between(0, 700)
-			// 	);
-
-			// 	particle.rotation.set(-0.5, -0.5, 0.5);
-			// }
-
 			particle.position.set(
 				between(-this.width - 256, this.width + 256),
 				between(0, 500),
 				between(0, 1000)
 			);
-
-			// particle.rotation.set(0.25, 0.25, 0.25);
 
 			particle.rotation.z = between(0, 360);
 			scene.add(particle);
