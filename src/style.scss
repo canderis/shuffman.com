@@ -339,8 +339,17 @@ canvas {
 		height: 10px;
 	}
 
+	.portfolio-item {
+		min-height: 100vh;
+	}
+
 	.marquee {
 		grid-template-rows: 1fr 10px;
+
+		.marquee-img {
+			height: 100%;
+
+		}
 	}
 
 	.page-title h2,
