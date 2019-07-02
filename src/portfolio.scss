@@ -37,8 +37,6 @@
 	}
 
 	span {
-		font-size: 1rem;
-		letter-spacing: 0.65px;
 		text-align: justify;
 	}
 }
@@ -50,24 +48,16 @@
 	grid-gap: 1rem;
 	grid-template-rows: auto 1fr auto;
 }
+
 .portfolio-item-details {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 30px;
 }
 
-
-
 .portfolio-item-desc {
-	letter-spacing: 0.76px;
-	font-size: 1.333rem;
-	line-height: 1.333rem;
-	height: 100%;
-	flex-shrink: 1;
 	grid-gap: 1rem;
 }
-
-
 
 .marquee {
 	.marquee-img {
@@ -129,19 +119,13 @@
 		text-align: right;
 	}
 
-	.portfolio-item-details {
-		display: flex;
-
-		h4 {
-			font-size: 0.9333rem;
-			letter-spacing: 0.76px;
-			text-align: justify;
-			margin: 0;
-		}
+	h4 {
+		text-align: justify;
+		margin: 0;
 	}
 
-	#safewalk-desc {
-		grid-area: desc;
+	.portfolio-item-details {
+		display: flex;
 	}
 
 	#safewalk-visit {
@@ -151,43 +135,22 @@
 	}
 
 	#safewalk-team {
-		display: grid;
-		grid-gap: 0.8rem;
-		grid-template-columns: auto auto;
-		margin-right: 0.8rem;
-
 		grid-area: team;
 
-		ul {
-			padding: 0;
-			margin: 0;
-
-			li {
-				font-size: 0.8rem;
-				letter-spacing: 0.3px;
-				text-align: justify;
-				white-space: nowrap;
-			}
+		padding-right: 1rem;
+		ul li {
+			text-align: justify;
+			white-space: nowrap;
 		}
 	}
 
 	.portfolio-item-desc {
-		p {
-			margin: 0;
-		}
-
-		letter-spacing: 0.76px;
-		font-size: 0.9333rem;
-		line-height: 1rem;
-		height: 100%;
 		display: grid;
 		grid-template-rows: auto auto 1rem;
-		flex-shrink: 1;
 		grid-gap: 1rem;
-	}
-}
 
-#adelitas-page .visit-area span,
-#revan-page .visit-area span {
-	font-size: 1.33rem;
+		grid-area: desc;
+
+		flex-shrink: 1;
+	}
 }
