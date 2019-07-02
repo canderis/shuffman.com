@@ -302,9 +302,6 @@ canvas {
 	html {
 		font-size: 2vh;
 	}
-	.marquee {
-		min-height: 400px;
-	}
 
 	.neon-border {
 		width: 80vw;
@@ -334,68 +331,8 @@ canvas {
 		transform: translateX(calc(-50vw + 30px));
 	}
 
-	#logo {
-		display: none;
-	}
-
 	#safewalk-page .portfolio-item-details {
-		display: grid;
-		grid-template-columns: auto;
-		grid-template-areas: "desc desc" "team team" "visit visit";
-		grid-row-gap: 20px;
-
-		#safewalk-team {
-			grid-area: team;
-		}
-
-		#safewalk-desc {
-			grid-area: desc;
-		}
-
-		#safewalk-visit {
-			grid-area: visit;
-		}
-	}
-
-	#nav-wrap {
-		padding: 0;
-	}
-
-	#title {
-		white-space: nowrap;
-		width: auto;
-	}
-
-	#portfolio-page .portfolio-item {
-		display: grid;
-		padding: 60px 10px 10px 10px;
-		width: 100vw;
-		height: auto;
-		h2, h3 {
-			max-width: calc(100vw - 2rem);
-
-		}
-	}
-
-	#revan-page.portfolio-item {
-		display: grid;
-		grid-template-rows: auto auto auto;
-		padding: 60px 10px 60px 10px;
-		width: 100vw;
-		/* height: fit-content; */
-		height: auto;
-	}
-
-	#adelitas-page .portfolio-item-details {
-		display: grid;
-		grid-gap: 10px;
-		grid-template-columns: auto;
-	}
-
-	#revan-page .portfolio-item-details {
-		display: grid;
-		grid-template-columns: auto;
-		grid-gap: 30px;
+		grid-template-areas: "desc desc" "team visit";
 	}
 
 	.switcher {
@@ -404,12 +341,6 @@ canvas {
 
 	.marquee {
 		grid-template-rows: 1fr 10px;
-	}
-
-	#calendar-page {
-		#calendar-desc {
-			width: 100%;
-		}
 	}
 
 	.page-title h2,
@@ -455,6 +386,14 @@ canvas {
 		height: 90vh;
 		top: 5vh;
 		left: 15vw;
+	}
+
+	.portfolio-item-details {
+		grid-template-columns: 1fr;
+	}
+
+	#portfolio-page #safewalk-page .portfolio-item-details {
+		display: grid;
 	}
 
 }
