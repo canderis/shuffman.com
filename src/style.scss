@@ -7,13 +7,23 @@ $main-text-color: #ffffff;
 html {
 	font-size: 16px;
 	-webkit-font-smoothing: antialiased;
+	overflow: hidden;
+	position: relative;
+	height: 100%;
 }
 
 body {
 	padding: 0;
 	margin: 0;
 	display: block;
+	position: relative;
+	height: 100%;
 	overflow: hidden;
+
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+	position: fixed;
 
 	font-family: "Open Sans", sans-serif;
 	font-weight: 300;
@@ -22,7 +32,17 @@ body {
 	color: $main-text-color;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.wrap {
+	position: relative; //that's it
+	overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-weight: 300;
 }
 
@@ -218,7 +238,7 @@ canvas {
 	grid-area: animations;
 }
 
-@import 'portfolio.scss';
+@import "portfolio.scss";
 
 #about-page {
 	background-color: #000b;
@@ -301,6 +321,8 @@ canvas {
 	/* Mobile Mode */
 	html {
 		font-size: 2vh;
+		height: 100vh;
+		width: 100vw;
 	}
 
 	.neon-border {
@@ -321,10 +343,13 @@ canvas {
 
 	nav {
 		position: absolute;
-		top: 40%;
+		top: 50%;
 		width: 100%;
 		text-align: center;
 		left: inherit;
+
+		max-height: 0px;
+		overflow: hidden;
 	}
 
 	#hamburger.portfolio {
@@ -340,7 +365,7 @@ canvas {
 	}
 
 	.portfolio-item {
-		min-height: 100vh;
+		height: initial;
 	}
 
 	.marquee {
@@ -348,7 +373,6 @@ canvas {
 
 		.marquee-img {
 			height: 100%;
-
 		}
 	}
 
@@ -363,6 +387,10 @@ canvas {
 
 	.nav--pages.-show {
 		background-color: hsla(0, 0%, 14%, 0.867);
+	}
+
+	nav.-show {
+		max-height: 100%;
 	}
 
 	@keyframes navTransition {
@@ -404,10 +432,21 @@ canvas {
 	#portfolio-page #safewalk-page .portfolio-item-details {
 		display: grid;
 	}
-
 }
 
 @media only screen and (max-width: 500px) {
+	nav ul li {
+		font-size: 2rem;
+		padding: 1rem;
+	}
+
+	nav {
+		min-width: 100vw;
+	}
+
+	.nav--pages.-show {
+		background-color: hsla(0, 0%, 14%, 1);
+	}
 
 	.page-title {
 		padding: 0 1rem;
@@ -436,13 +475,14 @@ canvas {
 		}
 	}
 
-	#portfolio-page #calendar-page{
+	#portfolio-page #calendar-page {
 		grid-template-rows: auto calc(100vw * 0.65) auto;
 		#calendar-desc {
 			width: 100%;
 			padding: 0px 1rem;
 		}
-		.marquee, .marquee-img{
+		.marquee,
+		.marquee-img {
 			height: calc(100vw * 0.65);
 		}
 	}
@@ -455,7 +495,8 @@ canvas {
 			display: grid;
 			padding: 0 1rem;
 		}
-		.marquee, .marquee-img{
+		.marquee,
+		.marquee-img {
 			height: calc(100vw * 0.63);
 		}
 	}
