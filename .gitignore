@@ -1,5 +1,5 @@
-._.DS_Store
-.DS_Store
-._fonts
 node_modules
-dist
+.DS_Store
+dist/*
+.env
+.secret

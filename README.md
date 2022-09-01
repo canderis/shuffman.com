@@ -1,2 +1,3 @@
-# shuffman.com
-My personal website
+# Shuffman
+
+Site is hosted on BlueHost
