@@ -1,3 +1,3 @@
 # Shuffman
 
-Site is hosted on BlueHost
+Includes working copy of https://github.com/canderis/Fluid-JS for now.

@@ -8,7 +8,13 @@ module.exports = {
 		container: false,
 	},
 	theme: {
-		colors,
+		colors: {
+			...colors,
+			grey: {
+				200: '#979797',
+				900: '#0F0F0F'
+			},
+		},
 		extend: {},
 		fontFamily: {
 			sans: ['Inter', 'sans-serif'],
