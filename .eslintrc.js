@@ -2,7 +2,7 @@ module.exports = {
 	root: true,
 	env: {
 		node: true,
-		es6:true,
+		es6: true,
 	},
 	parserOptions: {
 		ecmaVersion: 8,
@@ -21,12 +21,12 @@ module.exports = {
 				},
 				'import/resolver': {
 					typescript: {},
-				}
+				},
 			},
 			env: {
 				browser: true,
 				node: true,
-				es6: true
+				es6: true,
 			},
 			extends: [
 				'eslint:recommended',
@@ -37,7 +37,7 @@ module.exports = {
 				'plugin:react/recommended',
 				'plugin:react-hooks/recommended',
 				'plugin:jsx-a11y/recommended',
-				'plugin:prettier/recommended'
+				'plugin:prettier/recommended',
 			],
 			rules: {
 				'@typescript-eslint/ban-ts-ignore': 'off',
@@ -47,22 +47,23 @@ module.exports = {
 				'@typescript-eslint/no-unused-vars': 'warn',
 				'@typescript-eslint/no-use-before-define': 'error',
 				'@typescript-eslint/consistent-type-imports': 'warn',
+				'@typescript-eslint/no-inferrable-types': 'off',
 				'import/extensions': 'off',
 				'import/no-named-as-default-member': 'off',
 				'import/no-named-as-default': 'off',
 				'import/no-unresolved': 'off',
 				'unused-imports/no-unused-imports-ts': 'warn',
-				eqeqeq:'error',
+				eqeqeq: 'error',
 				'import/order': [
 					'warn',
 					{
 						groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object'],
-						'newline-between': 'always',
+						'newlines-between': 'always',
 						alphabetize: {
 							order: 'asc',
-							caseInsensitive: true
-						}
-					}
+							caseInsensitive: true,
+						},
+					},
 				],
 				'import/prefer-default-export': 'off',
 				// 'jsx-a11y/anchor-has-content': 'off',
@@ -80,11 +81,13 @@ module.exports = {
 				'no-plusplus': 'off',
 				'no-unused-vars': 'off',
 				'no-use-before-define': 'off',
-				'prettier/prettier': ['warn',
-			{},
-		{
-			usePrettierrc: true,
-		}],
+				'prettier/prettier': [
+					'warn',
+					{},
+					{
+						usePrettierrc: true,
+					},
+				],
 				'react-hooks/exhaustive-deps': 'off',
 				'react/display-name': 'off',
 				'react/jsx-no-props-spreading': 'off',
@@ -96,7 +99,6 @@ module.exports = {
 				'react/no-multi-comp': 'off',
 				camelcase: 'off',
 			},
-		}
+		},
 	],
-
 };

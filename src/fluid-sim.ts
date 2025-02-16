@@ -26,7 +26,7 @@ export const fluidSim = (params: Fluid) => {
 			pointer.dx = -5;
 		} else if (pointer.x <= 0) {
 			pointer.dx = 5;
-		} else if (Math.random() > 0.99) {
+		} else if (Math.random() > 0.999) {
 			pointer.dx = pointer.dx * -1;
 		} else if (pointer.x < params.canvas.width / 2 && Math.random() > 0.97) {
 			pointer.dx = 5;
@@ -36,7 +36,7 @@ export const fluidSim = (params: Fluid) => {
 			pointer.dy = -5;
 		} else if (pointer.y <= 0) {
 			pointer.dy = 5;
-		} else if (Math.random() > 0.99) {
+		} else if (Math.random() > 0.999) {
 			pointer.dy = pointer.dy * -1;
 		}
 

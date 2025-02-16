@@ -15,8 +15,26 @@ export const Home: FunctionComponent = memo(() => {
 	const [fluid, setFluid] = useState<Fluid>();
 
 	useLayoutEffect(() => {
-		const f = new Fluid(ref.current as HTMLCanvasElement, fluidSim);
+		const canvas = ref.current as HTMLCanvasElement;
+		const f = new Fluid(canvas, fluidSim);
 		f.activate();
+
+		// f.applyImageBackground('assets/texture.jpg');s
+		// f.setDitherURL('assets/texture.jpg');
+
+		canvas.addEventListener('mousemove', (e) => {
+			// pointers[0].moved = pointers[0].down;
+			// pointers[0].dx = (e.offsetX - pointers[0].x) * 5.0;
+			// pointers[0].dy = (e.offsetY - pointers[0].y) * 5.0;
+			f.pointers[0].x = e.offsetX;
+			f.pointers[0].y = e.offsetY;
+		});
+
+		window.addEventListener('keydown', (e) => {
+			if (e.code === 'KeyP') f.PARAMS.paused = !f.PARAMS.paused;
+			if (e.key === ' ') f.splatStack.push(parseInt(`${Math.random() * 20}`, 10) + 5);
+		});
+
 		setFluid(f);
 	}, []);
 
