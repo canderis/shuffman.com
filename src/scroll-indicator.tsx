@@ -1,6 +1,6 @@
-import { FunctionComponent, memo } from 'react';
+import { memo } from 'react';
 
-export const ScrollIndicator: FunctionComponent<{ isScrolled: boolean }> = memo(({ isScrolled }) => {
+export const ScrollIndicator = memo(({ isScrolled }: { isScrolled: boolean }) => {
 	return (
 		<div className="mx-auto fixed w-screen bottom-4 text-white py-4 text-sm font-serif uppercase tracking-widest grid z-50 pr-16">
 			<div className="w-full mr-16 grid gap-3">

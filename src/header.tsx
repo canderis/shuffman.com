@@ -1,6 +1,6 @@
-import { FunctionComponent, memo, useState } from 'react';
+import { memo, useState } from 'react';
 
-export const Header: FunctionComponent = memo(() => {
+export const Header = memo(() => {
 	const [isExpanded, setisExpanded] = useState<boolean>(false);
 
 	return (

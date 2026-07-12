@@ -1,7 +1,7 @@
 {
 	"css.validate": false,
 	"editor.formatOnSave": true,
-	"editor.codeActionsOnSave": ["source.fixAll.eslint", "source.fixAll.stylelint"],
+	"editor.codeActionsOnSave": ["source.fixAll.eslint"],
 	"editor.quickSuggestions": {
 		"strings": true
 	},

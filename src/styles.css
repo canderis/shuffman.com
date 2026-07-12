@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+	--color-grey-200: #979797;
+	--color-grey-900: #0f0f0f;
+	--font-sans: Inter, sans-serif;
+	--font-serif: 'Bebas Neue', serif;
+}
 
 body {
 	@apply h-full w-full relative;
@@ -23,4 +28,9 @@ html {
 
 .h-fit {
 	height: fit-content;
+}
+
+.grid-fr-auto {
+	display: grid;
+	grid-template-columns: 1fr auto;
 }

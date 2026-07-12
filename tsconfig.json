@@ -1,12 +1,10 @@
 {
 	"compilerOptions": {
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": ".",
 		"forceConsistentCasingInFileNames": true,
-		"importsNotUsedAsValues": "remove",
-		"jsx": "preserve",
+		"jsx": "react-jsx",
 		"module": "esNext",
-		"moduleResolution": "node",
+		"moduleResolution": "bundler",
 		"noEmit": true,
 		"noImplicitAny": true,
 		"paths": {
@@ -15,7 +13,8 @@
 		"resolveJsonModule": true,
 		"skipLibCheck": true,
 		"strict": true,
-		"target": "esnext"
+		"target": "esnext",
+		"verbatimModuleSyntax": true
 	},
 	"include": ["src"],
 	"exclude": ["node_modules"]
