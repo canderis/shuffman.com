@@ -1,24 +1,33 @@
-"use strict";
-
 class Hamburger {
-	constructor(navId, widthThreshold) {
-		this.widthThreshold = widthThreshold;
+	widthThreshold: number | undefined;
+	navId: string;
+	element: HTMLStyleElement;
+	hamburger: HTMLDivElement;
+	nav: HTMLElement;
+	stylesheet: CSSStyleSheet;
+	navVisible = false;
 
+	constructor(navId: string, widthThreshold?: number) {
+		this.widthThreshold = widthThreshold;
 		this.navId = navId;
 
 		this.element = document.createElement("style");
 		document.head.appendChild(this.element);
 
-		this.hamburger = document.createElement("div");
-		this.nav = document.getElementById(this.navId);
+		const nav = document.getElementById(this.navId);
+		if (!nav) {
+			throw new Error(`Nav element "#${this.navId}" not found`);
+		}
+		this.nav = nav;
 
+		this.hamburger = document.createElement("div");
 		this.nav.append(this.hamburger);
 		this.hamburger.setAttribute("id", "hamburger");
 		this.hamburger.append(document.createElement("span"));
 		this.hamburger.append(document.createElement("span"));
 		this.hamburger.append(document.createElement("span"));
 
-		this.css = [
+		let css = [
 			`#hamburger{
 				opacity: 1;
 				transform: rotate(0);
@@ -35,19 +44,24 @@ class Hamburger {
             }`,
 			`#hamburger.-hide {
 				opacity: 0;
-			}`
+			}`,
 		];
 
 		if (this.widthThreshold) {
-			this.css = [
+			css = [
 				`@media only screen and (max-width: ${this.widthThreshold}px) {
-					${this.css.join("")}
-				}`
+					${css.join("")}
+				}`,
 			];
 		}
 
-		this.stylesheet = this.element.sheet;
-		this.css.forEach(val => {
+		const stylesheet = this.element.sheet;
+		if (!stylesheet) {
+			throw new Error("Failed to create hamburger stylesheet");
+		}
+		this.stylesheet = stylesheet;
+
+		css.forEach((val) => {
 			this.stylesheet.insertRule(val);
 		});
 
@@ -74,13 +88,12 @@ class Hamburger {
 				border-radius: 3px;
 			}`);
 
-		this.navVisible = false;
 		this.hamburger.addEventListener("click", () => {
 			this.toggleNav();
 		});
 	}
 
-	toggleNav() {
+	toggleNav(): void {
 		if (!this.navVisible) {
 			this.nav.classList.add("-show");
 		} else {
@@ -89,13 +102,13 @@ class Hamburger {
 		this.navVisible = !this.navVisible;
 	}
 
-	disableHamburger() {
+	disableHamburger(): void {
 		this.navVisible = true;
 		this.nav.classList.add("-show");
 		this.hamburger.classList.add("-hide");
 	}
 
-	enableHamburger() {
+	enableHamburger(): void {
 		this.navVisible = false;
 		this.nav.classList.remove("-show");
 		this.hamburger.classList.remove("-hide");

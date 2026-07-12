@@ -1,18 +1,12 @@
-/*
-props: c-animate, pass a direction
-c-delay
-c-threshold
-c-duration
-*/
-
-"use strict";
-
 export class Animate {
+	element!: HTMLStyleElement;
+	stylesheet!: CSSStyleSheet;
+
 	constructor() {
 		this.buildStylesheet();
-		document.querySelectorAll("[c-animate]").forEach(el => {
-			const delay = el.getAttribute("c-animate-delay") || 0;
-			const duration = el.getAttribute("c-animate-duration") || 500;
+		document.querySelectorAll("[c-animate]").forEach((el) => {
+			const delay = el.getAttribute("c-animate-delay") || "0";
+			const duration = el.getAttribute("c-animate-duration") || "500";
 			const style = `animation-delay: ${delay}ms; animation-duration: ${duration}ms;`;
 
 			el.setAttribute("style", style);
@@ -23,14 +17,14 @@ export class Animate {
 		});
 	}
 
-	observerFactory(el) {
-		const threshold = el.getAttribute("c-threshold") || 0;
+	observerFactory(el: Element): IntersectionObserver {
+		const threshold = el.getAttribute("c-threshold") || "0";
 
-		const callback = (entries, observer) => {
-			entries.forEach(entry => {
+		const callback: IntersectionObserverCallback = (entries, observer) => {
+			entries.forEach((entry) => {
 				if (
 					entry.isIntersecting &&
-					entry.intersectionRatio >= threshold
+					entry.intersectionRatio >= Number(threshold)
 				) {
 					const src = entry.target.getAttribute("c-animate-src");
 					if (src) {
@@ -41,17 +35,21 @@ export class Animate {
 				}
 			});
 		};
-		const params = {
+		const params: IntersectionObserverInit = {
 			threshold: parseFloat(threshold) / 100,
-			rootMargin: "30px"
+			rootMargin: "30px",
 		};
 		return new IntersectionObserver(callback, params);
 	}
 
-	buildStylesheet() {
+	buildStylesheet(): void {
 		this.element = document.createElement("style");
 		document.head.appendChild(this.element);
-		this.stylesheet = this.element.sheet;
+		const stylesheet = this.element.sheet;
+		if (!stylesheet) {
+			throw new Error("Failed to create animation stylesheet");
+		}
+		this.stylesheet = stylesheet;
 
 		this.stylesheet.insertRule(`
 			.c-animation--init {

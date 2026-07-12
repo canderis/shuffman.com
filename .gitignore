@@ -3,3 +3,4 @@
 ._fonts
 node_modules
 dist
+*.local

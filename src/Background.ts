@@ -1,6 +1,4 @@
-"use strict";
-
-import smoke from "./images/cloud1.png";
+import smoke from "./assets/cloud1.png";
 import {
 	Clock,
 	WebGLRenderer,
@@ -12,33 +10,37 @@ import {
 	Color,
 	PerspectiveCamera,
 	PointLight,
-	MeshPhongMaterial
+	MeshPhongMaterial,
+	type Mesh as ThreeMesh,
 } from "three";
 
 class Background {
-	constructor(hook) {
-		this.runAnimate = true;
-		this.hook = hook;
+	runAnimate = true;
+	hook: string;
+	width: number;
+	height: number;
+	animate: () => void = () => {};
 
+	constructor(hook: string) {
+		this.hook = hook;
 		this.width = window.innerWidth;
 		this.height = window.innerHeight;
 	}
 
-	build() {
-		const between = (function() {
+	build(): void {
+		const between = (function () {
 			const SEED = 5;
 
 			let mw = 123456789;
 			let mz = 987654321;
 			const mask = 0xffffffff;
 
-			(i => {
+			((i: number) => {
 				mw = (123456789 + i) & mask;
 				mz = (987654321 - i) & mask;
 			})(SEED);
 
 			const random = () => {
-				// Takes any integer
 				mz = (36969 * (mz & 65535) + (mz >> 16)) & mask;
 				mw = (18000 * (mw & 65535) + (mw >> 16)) & mask;
 
@@ -47,7 +49,7 @@ class Background {
 				return result;
 			};
 
-			return (min, max) => {
+			return (min: number, max: number) => {
 				return Math.floor(random() * (max - min + 1) + min);
 			};
 		})();
@@ -62,7 +64,7 @@ class Background {
 			60,
 			this.width / this.height,
 			0.1,
-			10000
+			10000,
 		);
 		camera.position.set(0, 200, 1000);
 		scene.add(camera);
@@ -92,7 +94,7 @@ class Background {
 		const sphereMaterial = new MeshPhongMaterial({
 			color: 0xbb32a1,
 			shininess: 100,
-			specular: 0x050505
+			specular: 0x050505,
 		});
 
 		const floor = new Mesh(new PlaneGeometry(10000, 10000), sphereMaterial);
@@ -111,10 +113,10 @@ class Background {
 			0x579d9c,
 			0xbb32a1,
 			0xf9557b,
-			0xfa9f6b
+			0xfa9f6b,
 		];
 
-		const materials = [];
+		const materials: MeshLambertMaterial[] = [];
 		for (let i = 0; i < colors.length; i++) {
 			materials.push(
 				new MeshLambertMaterial({
@@ -123,8 +125,8 @@ class Background {
 					emissiveIntensity: 0.5,
 					map: texture,
 					transparent: true,
-					opacity: 0.3
-				})
+					opacity: 0.3,
+				}),
 			);
 			materials.push(
 				new MeshLambertMaterial({
@@ -133,18 +135,18 @@ class Background {
 					emissiveIntensity: 0.3,
 					map: texture,
 					transparent: true,
-					opacity: 0.3
-				})
+					opacity: 0.3,
+				}),
 			);
 		}
 
 		const lim = Math.floor(
-			(x => {
+			((x: number) => {
 				return 30 + 0.01190006 * x + 0.0000311615 * Math.pow(x, 2);
-			})(this.width)
+			})(this.width),
 		);
 
-		const particles = [];
+		const particles: ThreeMesh[] = [];
 		const geo = new PlaneGeometry(1024, 512);
 		for (let p = 0; p < lim; p++) {
 			const particle = new Mesh(geo, materials[p % materials.length]);
@@ -152,7 +154,7 @@ class Background {
 			particle.position.set(
 				between(-this.width - 256, this.width + 256),
 				between(0, 500),
-				between(0, 1000)
+				between(0, 1000),
 			);
 
 			particle.rotation.z = between(0, 360);
@@ -166,7 +168,7 @@ class Background {
 				requestAnimationFrame(this.animate);
 
 				const delta = clock.getDelta();
-				particles.forEach(particle => {
+				particles.forEach((particle) => {
 					particle.rotation.z += delta * 0.2;
 				});
 
@@ -174,7 +176,11 @@ class Background {
 			}
 		};
 
-		document.getElementById(this.hook).appendChild(renderer.domElement);
+		const hookEl = document.getElementById(this.hook);
+		if (!hookEl) {
+			throw new Error(`Background hook element "#${this.hook}" not found`);
+		}
+		hookEl.appendChild(renderer.domElement);
 
 		this.animate();
 	}
