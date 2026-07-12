@@ -1,0 +1,36 @@
+@import 'tailwindcss';
+
+@theme {
+	--color-grey-200: #979797;
+	--color-grey-900: #0f0f0f;
+	--font-sans: Inter, sans-serif;
+	--font-serif: 'Bebas Neue', serif;
+}
+
+body {
+	@apply h-full w-full relative;
+}
+
+html {
+	height: 100vh;
+	width: 100vw;
+	position: relative;
+	overflow: hidden;
+}
+
+.smooth-scroll {
+	scroll-behavior: smooth;
+}
+
+.w-min {
+	width: min-content;
+}
+
+.h-fit {
+	height: fit-content;
+}
+
+.grid-fr-auto {
+	display: grid;
+	grid-template-columns: 1fr auto;
+}

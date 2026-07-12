@@ -1,57 +1,58 @@
 {
-	"name": "shuffman.local",
-	"version": "1.0.0",
-	"description": "My personal website",
-	"main": "index.js",
+	"name": "shuffman",
+	"version": "4.0.0",
+	"type": "module",
+	"description": "",
 	"scripts": {
-		"build": "webpack --config webpack.prod.js",
-		"dev": "webpack-dev-server --open --config webpack.dev.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/canderis/shuffman.com.git"
+		"start": "vite",
+		"build": "vite build",
+		"preview": "vite build && vite preview",
+		"prepare": "husky",
+		"prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json}\"",
+		"ts:lint": "tsc --project tsconfig.json --noEmit",
+		"ts:watch": "tsc --project tsconfig.json --pretty --noEmit --watch",
+		"lint": "eslint ./src",
+		"lint:fix": "eslint --fix ./src"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/canderis/shuffman.com/issues"
-	},
-	"homepage": "https://github.com/canderis/shuffman.com#readme",
-	"browserslist": [
-		"last 2 versions",
-		"> 1%",
-		"IE 10"
-	],
 	"devDependencies": {
-		"@babel/core": "7.2.0",
-		"@babel/plugin-syntax-dynamic-import": "^7.2.0",
-		"@babel/preset-env": "7.2.0",
-		"autoprefixer": "^9.6.0",
-		"babel-loader": "8.0.4",
-		"clean-webpack-plugin": "1.0.0",
-		"copy-webpack-plugin": "^5.0.3",
-		"css-loader": "2.0.0",
-		"eslint": "^5.10.0",
-		"eslint-config-prettier": "^4.3.0",
-		"eslint-plugin-prettier": "^3.1.0",
-		"file-loader": "2.0.0",
-		"html-loader": "0.5.5",
-		"html-webpack-plugin": "3.2.0",
-		"htmlhint": "^0.11.0",
-		"node-sass": "^4.12.0",
-		"postcss-loader": "^3.0.0",
-		"prettier": "^1.17.1",
-		"sass-loader": "^7.1.0",
-		"style-loader": "0.23.1",
-		"stylelint": "9.9.0",
-		"stylelint-config-prettier": "^5.2.0",
-		"webpack": "4.27.1",
-		"webpack-cli": "3.1.2",
-		"webpack-dev-server": "^3.4.0",
-		"webpack-merge": "4.1.5"
+		"@eslint/js": "^9.39.0",
+		"@tailwindcss/vite": "^4.3.2",
+		"@typescript-eslint/eslint-plugin": "^8.63.0",
+		"@typescript-eslint/parser": "^8.63.0",
+		"@vitejs/plugin-react": "^6.0.3",
+		"eslint": "^9.39.0",
+		"globals": "^16.2.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-import-resolver-typescript": "^4.4.5",
+		"eslint-plugin-import": "^2.32.0",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
+		"eslint-plugin-prettier": "^5.5.6",
+		"eslint-plugin-react": "^7.37.5",
+		"eslint-plugin-react-hooks": "^7.1.1",
+		"eslint-plugin-unused-imports": "^4.4.1",
+		"husky": "^9.1.7",
+		"lint-staged": "^17.0.8",
+		"prettier": "^3.9.5",
+		"typescript": "^5.9.3",
+		"vite": "^8.1.4"
 	},
 	"dependencies": {
-		"three": "^0.99.0"
+		"@fortawesome/fontawesome-svg-core": "^7.3.0",
+		"@fortawesome/free-brands-svg-icons": "^7.3.0",
+		"@fortawesome/react-fontawesome": "^3.4.0",
+		"@types/react": "^19.2.17",
+		"@types/react-dom": "^19.2.3",
+		"fluid-canvas": "github:canderis/Fluid-JS#v1.0.0",
+		"overlayscrollbars": "^2.16.0",
+		"react": "^19.2.7",
+		"react-dom": "^19.2.7",
+		"react-router-dom": "^7.18.1",
+		"tailwindcss": "^4.3.2"
+	},
+	"lint-staged": {
+		"*.{ts,tsx}": "eslint --fix"
 	}
 }
