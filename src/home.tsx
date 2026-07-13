@@ -54,7 +54,7 @@ export const Home = memo(() => {
 					<h1 className="text-white/90 text-6xl font-extralight">Scott Huffman</h1>
 					<div className="grid-fr-auto">
 						<h2 className="text-white/90 text-xl font-light">ui/ux development</h2>
-						<div className="flex gap-3 my-auto">
+						<div className="flex gap-1 my-auto">
 							<a
 								href="https://www.linkedin.com/in/shuffman14/"
 								target="_blank"
