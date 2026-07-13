@@ -77,8 +77,6 @@ export default [
 				},
 			],
 			'import/prefer-default-export': 'off',
-			'jsx-a11y/click-events-have-key-events': 'off',
-			'jsx-a11y/no-noninteractive-element-interactions': 'off',
 			'no-console': 'off',
 			'no-else-return': 'warn',
 			'no-nested-ternary': 'off',

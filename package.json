@@ -46,10 +46,8 @@
 		"@types/react": "^19.2.17",
 		"@types/react-dom": "^19.2.3",
 		"fluid-canvas": "github:canderis/Fluid-JS#v1.0.0",
-		"overlayscrollbars": "^2.16.0",
 		"react": "^19.2.7",
 		"react-dom": "^19.2.7",
-		"react-router-dom": "^7.18.1",
 		"tailwindcss": "^4.3.2"
 	},
 	"lint-staged": {

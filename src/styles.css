@@ -4,7 +4,6 @@
 	--color-grey-200: #979797;
 	--color-grey-900: #0f0f0f;
 	--font-sans: Inter, sans-serif;
-	--font-serif: 'Bebas Neue', serif;
 }
 
 body {
@@ -20,14 +19,6 @@ html {
 
 .smooth-scroll {
 	scroll-behavior: smooth;
-}
-
-.w-min {
-	width: min-content;
-}
-
-.h-fit {
-	height: fit-content;
 }
 
 .grid-fr-auto {
