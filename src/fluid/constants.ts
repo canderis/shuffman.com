@@ -16,7 +16,7 @@ export const MAX_GROUP_SIZE = 3;
 export const GROUP_RADIUS = 110;
 export const OVERCROWD_REPEL_STRENGTH = 0.45;
 
-export const MAX_SPEED = 3.25;
+export const MAX_SPEED = 2.25;
 export const SPAWN_SPREAD = 0.28;
 
 export const APPEAR_CHANCE = 0.0018;
