@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Fluid from 'fluid-canvas';
 import { memo, useLayoutEffect, useRef } from 'react';
 
+import ditherUrl from './assets/texture.jpg';
 import { fluidSim, spawnPointerAt } from './fluid';
 
 export const Home = memo(() => {
@@ -23,7 +24,7 @@ export const Home = memo(() => {
 			intensity: 0.1,
 			background_color: { r: 15, g: 15, b: 15 },
 		});
-		f.setDitherURL('assets/texture.jpg');
+		f.setDitherURL(ditherUrl);
 		f.activate();
 
 		const onMouseMove = (e: MouseEvent) => {

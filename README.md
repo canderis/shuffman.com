@@ -18,6 +18,13 @@ npm start
 
 The dev server runs at [http://localhost:8080](http://localhost:8080).
 
+## Deploy
+
+Pushes to `master` (and PRs) run typecheck + build via [`.github/workflows/pages.yml`](.github/workflows/pages.yml); `master` also deploys to GitHub Pages.
+
+1. In the repo: **Settings → Pages → Build and deployment → Source: GitHub Actions**
+2. Site URL: https://canderis.github.io/
+
 ## Scripts
 
 | Command | Description |
@@ -46,8 +53,8 @@ src/
     repel.ts           Pairwise repel timers
     math.ts            Shared math helpers
   styles.css           Tailwind theme and global styles
+  assets/              Processed images (dither texture)
   index.tsx            Entry point
-assets/                Texture used by the fluid sim
 public/                Static hosting config
 ```
 
