@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Fluid from 'fluid-canvas';
 import { memo, useLayoutEffect, useRef } from 'react';
 
-import { fluidSim } from './fluid-sim';
+import { fluidSim, spawnPointerAt } from './fluid';
 
 export const Home = memo(() => {
 	const ref = useRef<HTMLCanvasElement>(null);
@@ -31,54 +31,65 @@ export const Home = memo(() => {
 			f.pointers[0].y = e.offsetY;
 		};
 
+		const onClick = (e: MouseEvent) => {
+			if ((e.target as HTMLElement).closest('a, button')) return;
+
+			const rect = canvas.getBoundingClientRect();
+			spawnPointerAt(f.pointers, e.clientX - rect.left, e.clientY - rect.top);
+		};
+
 		const onKeyDown = (e: KeyboardEvent) => {
-			if (e.code === 'KeyP') f.PARAMS.paused = !f.PARAMS.paused;
-			if (e.key === ' ') f.splatStack.push(parseInt(`${Math.random() * 20}`, 10) + 5);
+			if (e.code === 'KeyN') f.PARAMS.paused = !f.PARAMS.paused;
 		};
 
 		canvas.addEventListener('mousemove', onMouseMove);
+		window.addEventListener('click', onClick);
 		window.addEventListener('keydown', onKeyDown);
 
 		return () => {
 			f.deactivate();
 			canvas.removeEventListener('mousemove', onMouseMove);
+			window.removeEventListener('click', onClick);
 			window.removeEventListener('keydown', onKeyDown);
 		};
 	}, []);
 
 	return (
 		<div id="home" className="grow h-screen flex flex-row p-8 relative">
-			<div className="grid gap-10 my-auto mr-auto z-10">
+			<div className="grid gap-3 my-auto mr-auto z-10 w-fit">
 				<div className="h-7 w-11 border-l border-t border-grey-200" />
-				<div className="px-11">
-					<h1 className="text-white/90 text-6xl font-extralight">Scott Huffman</h1>
-					<div className="grid-fr-auto">
-						<h2 className="text-white/90 text-xl font-light">ui/ux development</h2>
-						<div className="flex gap-1 my-auto">
+				<div className="rounded-2xl border border-white/10 ml-7 bg-white/5 px-6 py-5 shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl backdrop-saturate-150">
+					<h1 className="text-white/90 text-6xl font-light mb-1">Scott Huffman</h1>
+					<div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-3">
+						<h2 className="font-subtitle text-white/90 text-xl font-light pl-0.5 grow">
+							ui/ux development
+						</h2>
+						<div className="flex items-center gap-5 sm:gap-3">
 							<a
 								href="https://www.linkedin.com/in/shuffman14/"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="LinkedIn"
-								className="text-white/50 hover:text-white/90 transition-colors"
+								className="inline-flex items-center text-[1.6875rem] leading-none text-white/50 hover:text-white/90 transition-colors sm:text-lg"
 							>
-								<FontAwesomeIcon icon={faLinkedin} size="lg" />
+								<FontAwesomeIcon icon={faLinkedin} />
 							</a>
 							<a
 								href="https://github.com/canderis"
 								target="_blank"
 								rel="noopener noreferrer"
 								aria-label="GitHub"
-								className="text-white/50 hover:text-white/90 transition-colors"
+								className="inline-flex items-center text-[1.6875rem] leading-none text-white/50 hover:text-white/90 transition-colors sm:text-lg"
 							>
-								<FontAwesomeIcon icon={faGithub} size="lg" />
+								<FontAwesomeIcon icon={faGithub} />
 							</a>
 						</div>
 					</div>
 				</div>
 				<div className="h-7 w-11 border-l border-b border-grey-200" />
 			</div>
-			<canvas ref={ref} className="bg-green-50/10 absolute top-0  left-0  h-screen w-screen z-0" />
+			<p className="absolute bottom-8 left-8 z-10 text-black/20 text-sm font-light">press n</p>
+			<canvas ref={ref} className="bg-green-50/10 absolute top-0 left-0 h-screen w-screen z-0" />
 		</div>
 	);
 });

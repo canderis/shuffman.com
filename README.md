@@ -34,13 +34,21 @@ The dev server runs at [http://localhost:8080](http://localhost:8080).
 
 ```
 src/
-  app.tsx        App shell
-  home.tsx       Landing page with fluid canvas
-  fluid-sim.ts   Autonomous pointer behavior for the simulation
-  styles.css     Tailwind theme and global styles
-  index.tsx      Entry point
-assets/          Texture used by the fluid sim
-public/          Static hosting config
+  app.tsx              App shell
+  home.tsx             Landing page with fluid canvas
+  fluid-sim.ts         Re-exports the fluid simulation entry
+  fluid/
+    index.ts           Simulation loop orchestrator
+    constants.ts       Tunable sim parameters
+    pointers.ts        Spawn / densify pointers
+    population.ts      Appear / disappear oscillation
+    forces.ts          Attract, repel, and motion
+    repel.ts           Pairwise repel timers
+    math.ts            Shared math helpers
+  styles.css           Tailwind theme and global styles
+  index.tsx            Entry point
+assets/                Texture used by the fluid sim
+public/                Static hosting config
 ```
 
 ## Fluid background
@@ -48,7 +56,6 @@ public/          Static hosting config
 The canvas background is powered by `fluid-canvas`. Pointer movement and keyboard shortcuts are configured in `src/home.tsx`:
 
 - **Mouse** — steers the primary pointer
-- **P** — pause / resume the simulation
-- **Space** — trigger random splats
+- **N** — pause / resume the simulation
 
-Simulation behavior is defined in `src/fluid-sim.ts`.
+Simulation behavior lives under `src/fluid/`.
